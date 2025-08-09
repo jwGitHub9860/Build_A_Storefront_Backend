@@ -4,10 +4,9 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node dist/server.js\"",
     "build": "tsc",
+    "start": "node src/server.ts",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "start": "node dist/server.js",
     "test": "echo \"No tests yet\" && exit 0"
   },
   "author": "Udacity",
