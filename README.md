@@ -1,5 +1,15 @@
 # Storefront Backend Project
 
+This project is an API that provide all the functionality needed for an online store. The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
+
+## Creation Date
+
+> 4/8/2026
+
+## Project Status
+
+> Active
+
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
@@ -52,3 +62,71 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+
+## Challenges Faced During Project
+
+
+## Udacity Mentors Who Have Answered Questions In Knowledge To Help With Project
+
+
+## Languages
+
+**Docker**
+
+<p align="left"> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> </p>
+
+**Express**
+
+<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img width="114" height="216" alt="express_logo" src="https://github.com/user-attachments/assets/922b7eb3-f9a5-45d8-add7-e73f07cff732" /> </a> 
+
+**Jasmine**
+
+<a href="https://jasmine.github.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jasmine/jasmine-icon.svg" alt="jasmine" width="40" height="40"/> </a>
+
+**JavaScript**
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a>
+
+**Node.js**
+
+<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img width="59" height="49" alt="node_js_logo" src="https://github.com/user-attachments/assets/bc05c6f4-2ccb-41ab-a499-d0cdee52540f" /> </a>
+
+**PostgreSQL**
+
+<p align="left"> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> </p>
+
+**TypeScript**
+
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
+
+
+## Tools
+
+**Visual Studio Code** - The application software where the project is edited.
+
+<p align="left"> <img width="43" height="46" alt="VSCode_logo" src="https://github.com/user-attachments/assets/0f8d15c4-276a-46ef-92cd-80a2f1958e76" /> </p>
+
+
+**GitHub Desktop** - The application software that gives access to the project from _GitHub_ and allows it to be edited in _Visual Studio Code_.
+
+<p align="left"> <img width="46" height="46" alt="GitHub_Desktop_logo" src="https://github.com/user-attachments/assets/bbd2a72d-0953-499e-ab28-e55b11171b83" /> </p>
+
+
+## Credits
+###### References used while making project
+
+“GitHub Profile README Generator.” _GitHub Profile Readme Generator | GitHub Profile Readme Generator_, rahuldkjain.github.io/gh-profile-readme-generator/. Accessed 8 Apr. 2026.
+
+“Make a README.” _GitHub_, GitHub, www.makeareadme.com/. Accessed 8 Apr. 2026.
+
+“MLA Works Cited: Electronic Sources (Web Publications).” _MLA Works Cited: Electronic Sources - Purdue OWL® - Purdue University_, owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html. Accessed 8 Apr. 2026.
+
+Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” freeCodeCamp.Org, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
+
+UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
+
+“Udacity Git Commit Message Style Guide.” _Udacity Nanodegree Style Guide_, udacity.github.io/git-styleguide/. Accessed 15 Mar. 2026.
+
+## License
+
+[License](LICENSE.txt)
