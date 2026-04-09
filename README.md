@@ -21,10 +21,18 @@ yarn
 ```
 yarn watch
 ```
-
+5. Install **Postman** if it is not available
 
 ## How to Use the Project
-1. 
+1. Open **Postman**
+2. _If collection does not exist,_ create new collection to hold requests
+3. _If there are no requests,_ create new request
+4. Input one of the following URL options into request
+```
+http://localhost:3000/
+```
+5. Choose Method that matches chosen request: **GET**, **POST**, **PUT**, **DELETE**
+6. Hit the **"Send"** button to send the request
 
 
 ## Getting Started
@@ -123,10 +131,13 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 <p align="left"> <img width="43" height="46" alt="VSCode_logo" src="https://github.com/user-attachments/assets/0f8d15c4-276a-46ef-92cd-80a2f1958e76" /> </p>
 
-
 **GitHub Desktop** - The application software that gives access to the project from _GitHub_ and allows it to be edited in _Visual Studio Code_.
 
 <p align="left"> <img width="46" height="46" alt="GitHub_Desktop_logo" src="https://github.com/user-attachments/assets/bbd2a72d-0953-499e-ab28-e55b11171b83" /> </p>
+
+**Postman** - The application software where the project is run.
+
+<img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>
 
 
 ## Credits
