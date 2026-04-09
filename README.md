@@ -37,9 +37,15 @@ CREATE DATABASE shopping;
 ```
 GRANT ALL PRIVILEGES ON DATABASE shopping TO shopping_user;
 ```
-9. Open **Visual Studio Code**
-10. Open terminal in **Visual Studio Code**
-11. Input the command below into the terminal to install the required packages and create the node modules folder
+9. Input the command below into the terminal to test if _Steps 5-8_ work
+```
+\dt
+```
+The following output should be displayed: **No relations found** or **Did not find an relations.**
+
+10. Open **Visual Studio Code**
+11. Open terminal in **Visual Studio Code**
+12. Input the command below into the terminal to install the required packages and create the node modules folder
 ```
 yarn
 ```
