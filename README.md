@@ -10,6 +10,23 @@ This project is an API that provide all the functionality needed for an online s
 
 > Active
 
+## How to Install and Run the Project
+1. Open **Visual Studio Code**
+2. Open terminal in **Visual Studio Code**
+3. Input the command below into the terminal to install the required packages and create the node modules folder
+```
+yarn
+```
+4. Input the command below into the terminal to start the server initially
+```
+yarn watch
+```
+
+
+## How to Use the Project
+1. 
+
+
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
@@ -121,7 +138,7 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 “MLA Works Cited: Electronic Sources (Web Publications).” _MLA Works Cited: Electronic Sources - Purdue OWL® - Purdue University_, owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html. Accessed 8 Apr. 2026.
 
-Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” freeCodeCamp.Org, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
+Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” _freeCodeCamp.Org_, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
 
 UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
 
