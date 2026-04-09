@@ -45,11 +45,30 @@ The following output should be displayed: **No relations found** or **Did not fi
 
 10. Open **Visual Studio Code**
 11. Open terminal in **Visual Studio Code**
-12. Input the command below into the terminal to install the required packages and create the node modules folder
+12. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
+```
+npm install yarn -g
+```
+13. Input the command below into the terminal to install **db-migrate** and enable **db-migrate** commands to be run in _Visual Studio Code_
+```
+npm install db-migrate -g
+```
+14. Input the command below into the terminal to check _node version_
+```
+node -v
+```
+15. _If node is below 10 or 12_, run the following commands to update the _node version_
+```
+npm install -g n
+n 10.18.0
+PATH="$PATH"
+node -v
+```
+16. Input the command below into the terminal to install the required packages and create the node modules folder
 ```
 yarn
 ```
-12. Input the command below into the terminal to start the server initially
+17. Input the command below into the terminal to start the server initially
 ```
 yarn watch
 ```
