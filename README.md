@@ -11,17 +11,43 @@ This project is an API that provide all the functionality needed for an online s
 > Active
 
 ## How to Install and Run the Project
-1. Open **Visual Studio Code**
-2. Open terminal in **Visual Studio Code**
-3. Input the command below into the terminal to install the required packages and create the node modules folder
+1. Open **Terminal**
+2. Input the command below into the terminal to switch to the _postgres_ user
+```
+su postgres
+```
+3. Input the command below into the terminal to start _psql_
+```
+psql postgres
+```
+4. _If Steps 1-3 fail,_ open **SQL Shell (psql)**
+5. Input the command below into the terminal to create a new user for project
+```
+CREATE USER shopping_user WITH PASSWORD 'password123';
+```
+6. Input the command below into the terminal to create new database
+```
+CREATE DATABASE shopping;
+```
+7. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
+```
+\c shopping
+```
+8. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
+```
+GRANT ALL PRIVILEGES ON DATABASE shopping TO shopping_user;
+```
+9. Open **Visual Studio Code**
+10. Open terminal in **Visual Studio Code**
+11. Input the command below into the terminal to install the required packages and create the node modules folder
 ```
 yarn
 ```
-4. Input the command below into the terminal to start the server initially
+12. Input the command below into the terminal to start the server initially
 ```
 yarn watch
 ```
-5. Install **Postman** if it is not available
+
 
 ## How to Use the Project
 1. Open **Postman**
