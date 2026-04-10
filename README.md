@@ -202,6 +202,8 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” _freeCodeCamp.Org_, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
 
+Oscalation, and Erwin Brandstetter. “Only Permit Specific Values in Postgresql Column.” Edited by User330315, _Stack Overflow_, stackoverflow.com/#organization, 1 Jan. 1963, stackoverflow.com/questions/55288282/only-permit-specific-values-in-postgresql-column#:~:text=To%20only%20permit%20specific%20values%20in%20a,*%20Using%20an%20ever%2Dexpanding/dynamic%20set%20of%20values. Accessed 10 Apr. 2026.
+
 UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
 
 “Udacity Git Commit Message Style Guide.” _Udacity Nanodegree Style Guide_, udacity.github.io/git-styleguide/. Accessed 15 Mar. 2026.
