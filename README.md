@@ -21,54 +21,55 @@ su postgres
 psql postgres
 ```
 4. _If Steps 1-3 fail,_ open **SQL Shell (psql)**
-5. Input the command below into the terminal to create a new user for project
+5. Input the following <ins>psql connection parameters</ins> to enable use of _SQL Shell (psql)_: **Server**, **Database**, **Username**, **Password**
+6. Input the command below into the terminal to create a new user for project
 ```
 CREATE USER shopping_user WITH PASSWORD 'password123';
 ```
-6. Input the command below into the terminal to create new database
+7. Input the command below into the terminal to create new database
 ```
 CREATE DATABASE shopping;
 ```
-7. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
+8. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
 ```
 \c shopping
 ```
-8. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
+9. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
 ```
 GRANT ALL PRIVILEGES ON DATABASE shopping TO shopping_user;
 ```
-9. Input the command below into the terminal to test if _Steps 5-8_ work
+10. Input the command below into the terminal to test if _Steps 5-8_ work
 ```
 \dt
 ```
 The following output should be displayed: **No relations found** or **Did not find an relations.**
 
-10. Open **Visual Studio Code**
-11. Open terminal in **Visual Studio Code**
-12. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
+11. Open **Visual Studio Code**
+12. Open terminal in **Visual Studio Code**
+13. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
 ```
 npm install yarn -g
 ```
-13. Input the command below into the terminal to install **db-migrate** and enable **db-migrate** commands to be run in _Visual Studio Code_
+14. Input the command below into the terminal to install **db-migrate** and enable **db-migrate** commands to be run in _Visual Studio Code_
 ```
 npm install db-migrate -g
 ```
-14. Input the command below into the terminal to check _node version_
+15. Input the command below into the terminal to check _node version_
 ```
 node -v
 ```
-15. _If node is below 10 or 12_, run the following commands to update the _node version_
+16. _If node is below 10 or 12_, run the following commands to update the _node version_
 ```
 npm install -g n
 n 10.18.0
 PATH="$PATH"
 node -v
 ```
-16. Input the command below into the terminal to install the required packages and create the node modules folder
+17. Input the command below into the terminal to install the required packages and create the node modules folder
 ```
 yarn
 ```
-17. Input the command below into the terminal to start the server initially
+18. Input the command below into the terminal to start the server initially
 ```
 yarn watch
 ```
