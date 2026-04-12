@@ -142,9 +142,15 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 ## Challenges Faced During Project
 
+One challenge that was faced was running the ```yarn watch``` command for the inital code of the project to ensure that the starter was working. This challenge was overcome by running the command shown below in the _Visual Studio Code terminal_:
+```
+yarn add typescript@latest -D
+```
+This was the solution given by **Ananta** in _Knowledge, Udacity_.
+
 
 ## Udacity Mentors Who Have Answered Questions In Knowledge To Help With Project
-
+- Ananta
 
 ## Languages
 
