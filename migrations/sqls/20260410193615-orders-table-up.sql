@@ -4,5 +4,5 @@ CREATE TABLE orders (
     productOrderId bigint REFERENCES products(id),
     quantity integer NOT NULL,
     userId bigint REFERENCES users(id),
-    orderStatus VARCHAR(64) NOT NULL CHECK (status IN ('active', 'complete'))
+    orderStatus VARCHAR(64) NOT NULL CHECK (orderStatus IN ('active', 'complete'))
 );
