@@ -77,15 +77,15 @@ yarn watch
 
 
 ## How to Use the Project
-1. Open **Postman**
-2. _If collection does not exist,_ create new collection to hold requests
-3. _If there are no requests,_ create new request
-4. Input one of the following URL options into request
+1. Input the following command into the <ins>Visual Studio Code</ins> terminal to run migrations
 ```
-http://localhost:3000/
+db-migrate up
 ```
-5. Choose Method that matches chosen request: **GET**, **POST**, **PUT**, **DELETE**
-6. Hit the **"Send"** button to send the request
+2. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
+3. Input the command shown below to fix the **assertion error**
+```
+GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
+```
 
 
 ## Getting Started
