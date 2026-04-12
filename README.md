@@ -50,9 +50,10 @@ The following output should be displayed: **No relations found** or **Did not fi
 ```
 npm install yarn -g
 ```
-14. Input the command below into the terminal to install **db-migrate** and enable **db-migrate** commands to be run in _Visual Studio Code_
+14. Input the commands below into the terminal to install **db-migrate** and **db-migrate-pg** and enable **db-migrate** commands to be run in _Visual Studio Code_
 ```
 npm install db-migrate -g
+npm install db-migrate-pg
 ```
 15. Input the command below into the terminal to check _node version_
 ```
