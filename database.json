@@ -9,8 +9,8 @@
   "test": {
     "driver": "pg",
     "host": "127.0.0.1",
-    "database": "store_items_test",
-    "user": "test_user",
+    "database": "shopping_test",
+    "user": "shopping_user_test",
     "password": "password123"
   }
 }
