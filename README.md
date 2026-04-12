@@ -194,10 +194,6 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 
 <p align="left"> <img width="46" height="46" alt="GitHub_Desktop_logo" src="https://github.com/user-attachments/assets/bbd2a72d-0953-499e-ab28-e55b11171b83" /> </p>
 
-**Postman** - The application software where the project is run.
-
-<img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>
-
 
 ## Credits
 ###### References used while making project
