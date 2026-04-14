@@ -56,6 +56,8 @@ export class OrderStatus {
         }
     }
 
+    // TEMP: should I include "update" Method?
+
     async delete(id: string): Promise<Order> {
         try {
             // @ts-ignore

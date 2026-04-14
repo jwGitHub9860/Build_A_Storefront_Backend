@@ -55,6 +55,8 @@ export class ProductStore {
         }
     }
 
+    // TEMP: should I include "update" Method?
+
     async delete(id: string): Promise<Product> {
         try {
             // @ts-ignore
