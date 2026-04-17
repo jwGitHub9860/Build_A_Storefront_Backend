@@ -28,13 +28,21 @@ describe("User Model", () => {
             id: 1,
             firstName: "John",
             lastName: "Doe",
-            password: "password123"
+            username: "userJohn",
+            password: "password123",
+
+            // TEMP: does this need Correcting?
+            password_digest: "password123",
         });
         expect(result).toEqual({
             id: 1,
             firstName: "John",
             lastName: "Doe",
-            password: "password123"
+            username: "userJohn",
+            password: "password123",
+
+            // TEMP: does this need Correcting?
+            password_digest: "password123",
         });
     });
 
@@ -45,7 +53,11 @@ describe("User Model", () => {
             id: 1,
             firstName: "John",
             lastName: "Doe",
-            password: "password123"
+            username: "userJohn",
+            password: "password123",
+
+            // TEMP: does this need Correcting?
+            password_digest: "password123",
         }]);
     });
 
@@ -55,7 +67,11 @@ describe("User Model", () => {
             id: 1,
             firstName: "John",
             lastName: "Doe",
-            password: "password123"
+            username: "userJohn",
+            password: "password123",
+
+            // TEMP: does this need Correcting?
+            password_digest: "password123",
         }]);
     });
     

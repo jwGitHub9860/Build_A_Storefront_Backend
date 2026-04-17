@@ -1,13 +1,19 @@
 // @ts-ignore
 import Client from "../database";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
+const saltRounds = process.env.SALT_ROUNDS as string;
+const pepper = process.env.PASSWORD_PEPPER as string;
 
 // Builds TypeScript "User"
 export type User = {
     id: Number,
     firstName: string,
     lastName: string,
-    password: string
+    username: string,
+    password: string,
+    password_digest: string
 }
 
 // Build Out Methods for All CRUD Actions
@@ -46,7 +52,14 @@ export class UserStore {
             // @ts-ignore
             const conn = await Client.connect()
             const sql = 'INSERT INTO users (firstName, lastName, password) VALUES ($1, $2, $3) RETURNING *'
-            const result = await conn.query(sql, [u.firstName, u.lastName, u.password])
+
+            // Hashes, Salts, and Peppers "password" & Saves Result to "password_digest"
+            const hash = bcrypt.hashSync(
+                u.password + pepper,
+                parseInt(saltRounds)
+            )
+
+            const result = await conn.query(sql, [u.firstName, u.lastName, u.username, u.password, hash])
             const user = result.rows[0]
             conn.release()
             return user
@@ -69,5 +82,24 @@ export class UserStore {
         } catch (err) {
             throw new Error(`Could not add new user ${id}. Error: ${err}`);
         }
+    }
+
+    async authenticate(username: string, password: string): Promise<User | null> {
+        // @ts-ignore
+        const conn = await Client.connect()
+        const sql = 'SELECT password_digest FROM users WHERE username=($1)'
+
+        const result = await conn.query(sql, [username])
+
+        console.log(password+pepper)
+
+        if (result.rows.length) {
+            const user = result.rows[0]
+            console.log(user)
+            if (bcrypt.compareSync(password+pepper, user.password_digest)) {
+                return user
+            }
+        }
+        return null
     }
 }

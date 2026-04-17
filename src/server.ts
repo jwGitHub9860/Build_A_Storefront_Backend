@@ -144,7 +144,9 @@ app.post('/users', (req: Request, res: Response) => {
         id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        username: req.body.username,
         password: req.body.password,
+        password_digest: req.body.password_digest,
     }
     try {
         res.send('this is the CREATE route')
