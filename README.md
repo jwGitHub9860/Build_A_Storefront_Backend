@@ -161,7 +161,7 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 
 **Express**
 
-<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img width="114" height="216" alt="express_logo" src="https://github.com/user-attachments/assets/922b7eb3-f9a5-45d8-add7-e73f07cff732" /> </a> 
+<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img width="114" height="40" alt="express_logo" src="https://github.com/user-attachments/assets/922b7eb3-f9a5-45d8-add7-e73f07cff732" /> </a> 
 
 **Jasmine**
 
