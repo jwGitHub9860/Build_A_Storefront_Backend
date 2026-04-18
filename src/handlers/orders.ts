@@ -1,7 +1,12 @@
 import express, { Request, Response } from "express";
 import { Order, OrderStatus } from "../models/order";
+import jwt from "jsonwebtoken";
 
 const store = new OrderStatus()
+
+// MUST USE to Define "process.env.TOKEN_SECRET" as String
+// Prevents Error of Undefined "process.env.TOKEN_SECRET"
+const secret = process.env.TOKEN_SECRET as string;
 
 // Handler Functions
 const index = async (req: Request, res: Response) => {
@@ -18,6 +23,17 @@ const show = async (req: Request, res: Response) => {
 }
 
 const create = async (req: Request, res: Response) => {
+    // Protects "orders" Create Route by Requiring JWT Validation
+    try {
+        const authorizationHeader = req.headers.authorization
+        const token = authorizationHeader?.split(' ')[1]
+        jwt.verify((token as string), secret)
+    } catch (err) {
+        res.status(401)
+        res.json('Access denied, invalid token')
+        return
+    }
+    
     try {
         const order: Order = {
             id: req.body.id,
@@ -38,8 +54,23 @@ const create = async (req: Request, res: Response) => {
 // TEMP: should I include "update" Method?
 
 const destroy = async (req: Request, res: Response) => {
-    const deleted = await store.delete(req.body.id)
-    res.json(deleted)
+    // Protects "orders" Delete Route by Requiring JWT Validation
+    try {
+        const authorizationHeader = req.headers.authorization
+        const token = authorizationHeader?.split(' ')[1]
+        jwt.verify((token as string), secret)
+    } catch (err) {
+        res.status(401)
+        res.json('Access denied, invalid token')
+        return
+    }
+    try {
+        const deleted = await store.delete(req.body.id)
+        res.json(deleted)
+    } catch (err) {
+        res.status(400)
+        res.json({ err })
+    }
 }
 
 const ordersRoutes = (app: express.Application) => {
