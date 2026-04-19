@@ -84,6 +84,7 @@ export class UserStore {
         }
     }
 
+    // Checks if Given Password Matches "password" in Database
     async authenticate(username: string, password: string): Promise<User | null> {
         // @ts-ignore
         const conn = await Client.connect()
@@ -93,9 +94,12 @@ export class UserStore {
 
         console.log(password+pepper)
 
+        // Checks if User Account Exists
         if (result.rows.length) {
             const user = result.rows[0]
             console.log(user)
+
+            // Checks if Incoming Password WITH "pepper" Matches "password_digest"
             if (bcrypt.compareSync(password+pepper, user.password_digest)) {
                 return user
             }
