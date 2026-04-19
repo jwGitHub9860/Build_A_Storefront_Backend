@@ -8,7 +8,7 @@ const pepper = process.env.PASSWORD_PEPPER as string;
 
 // Builds TypeScript "User"
 export type User = {
-    id: Number,
+    id?: Number,
     firstName: string,
     lastName: string,
     username: string,
@@ -51,20 +51,20 @@ export class UserStore {
         try {
             // @ts-ignore
             const conn = await Client.connect()
-            const sql = 'INSERT INTO users (firstName, lastName, password) VALUES ($1, $2, $3) RETURNING *'
+            const sql = 'INSERT INTO users (firstName, lastName, username, password) VALUES ($1, $2, $3, $4) RETURNING *'
 
-            // Hashes, Salts, and Peppers "password" & Saves Result to "password_digest"
+            // Hashes, Salts, and Peppers "password" & Saves Hashed Password to "password_digest"
             const hash = bcrypt.hashSync(
                 u.password + pepper,
                 parseInt(saltRounds)
             )
 
-            const result = await conn.query(sql, [u.firstName, u.lastName, u.username, u.password, hash])
+            const result = await conn.query(sql, [u.username, hash])
             const user = result.rows[0]
             conn.release()
             return user
         } catch (err) {
-            throw new Error(`Could not add new user ${u.firstName}. Error: ${err}`);
+            throw new Error(`Could not add new user ${u.username}. Error: ${err}`);
         }
     }
 
