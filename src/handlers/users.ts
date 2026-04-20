@@ -10,8 +10,23 @@ const secret = process.env.TOKEN_SECRET as string;
 
 // Handler Functions
 const index = async (req: Request, res: Response) => {
-    const users = await store.index()
-    res.json(users)
+    // Requires Token to Display All Users
+    try {
+        // Checks if Token is Valid
+        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+    } catch (err) {
+        res.status(401)
+        res.json(`Invalid token ${err}`)
+        return
+    }
+
+    try {
+        const users = await store.index()
+        res.json(users)
+    } catch (err) {
+        res.status(400)
+        res.json(err)
+    }
 }
 
 const show = async (req: Request, res: Response) => {
