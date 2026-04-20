@@ -53,13 +53,15 @@ export class UserStore {
             const conn = await Client.connect()
             const sql = 'INSERT INTO users (firstName, lastName, username, password) VALUES ($1, $2, $3, $4) RETURNING *'
 
-            // Hashes, Salts, and Peppers "password" & Saves Hashed Password to "password_digest"
+            // Adds Protective Measures to Ensure No One Can Take Stolen Password & Use it in Application
             const hash = bcrypt.hashSync(
                 u.password + pepper,
                 parseInt(saltRounds)
             )
 
+            // Saves Hashed Password to "password_digest"
             const result = await conn.query(sql, [u.username, hash])
+            
             const user = result.rows[0]
             conn.release()
             return user
