@@ -34,9 +34,8 @@ const create = async (req: Request, res: Response) => {
     try {
         const newUser = await store.create(user)
 
-        // Signs Token as Part of "user" Create Action
+        // Creates Token AFTER New User is Created
         // "token" will CONSTANTLY CHANGE
-        // TEMP: Use "user: newUser" OR "id: newUser.id"?
         let token = jwt.sign({ user: newUser }, secret)
         
         res.json({newUser, token})
