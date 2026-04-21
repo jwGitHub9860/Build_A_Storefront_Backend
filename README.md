@@ -96,7 +96,72 @@ GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 npm start
 ```
 The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
-2. 
+
+2. Open **Postman**
+3. _If collection does not exist,_ create new collection to hold requests
+4. _If there are no requests,_ create new request
+5. Input one of the following URL options into the respective requests
+
+**<ins>Home Request:</ins>** (**GET** request)
+```
+http://localhost:3000/
+```
+**<ins>Product Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products
+```
+**<ins>Product Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products/1
+```
+**<ins>Product Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/products
+```
+**<ins>Product Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/products/1
+```
+
+**<ins>Order Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products
+```
+**<ins>Order Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products/1
+```
+**<ins>Order Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/products
+```
+**<ins>Order Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/products/1
+```
+
+**<ins>User Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products
+```
+**<ins>User Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products/1
+```
+**<ins>User Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/products
+```
+**<ins>User Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/products/1
+```
+**<ins>Current Order by User Route:</ins>** (**GET** request)
+```
+http://localhost:3000/users/:userID/orders/:orderID/products
+```
+
+6. Hit the **"Send"** button to send the request
 
 
 ## Getting Started
@@ -204,6 +269,10 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 **GitHub Desktop** - The application software that gives access to the project from _GitHub_ and allows it to be edited in _Visual Studio Code_.
 
 <p align="left"> <img width="46" height="46" alt="GitHub_Desktop_logo" src="https://github.com/user-attachments/assets/bbd2a72d-0953-499e-ab28-e55b11171b83" /> </p>
+
+**Postman** - The application software where the project is run.
+
+<img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>
 
 
 ## Credits
