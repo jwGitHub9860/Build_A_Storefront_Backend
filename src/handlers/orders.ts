@@ -15,11 +15,26 @@ const index = async (req: Request, res: Response) => {
 }
 
 const show = async (req: Request, res: Response) => {
-    // MUST DEFINE "req.params.id" as String SEPARATELY or "req.params.id" Error will Occur
-    const id = req.params.id as string
+    // Requires Token to Display Current User's Orders
+    try {
+        // Checks if Token is Valid
+        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+    } catch (err) {
+        res.status(401)
+        res.json(`Invalid token ${err}`)
+        return
+    }
 
-    const order = await store.show(id)
-    res.json(order)
+    try {
+        // MUST DEFINE "req.params.id" as String SEPARATELY or "req.params.id" Error will Occur
+        const id = req.params.id as string
+    
+        const order = await store.show(id)
+        res.json(order)
+    } catch (err) {
+        res.status(400)
+        res.json(err)
+    }
 }
 
 const create = async (req: Request, res: Response) => {
