@@ -90,6 +90,11 @@ db-migrate up
 ```
 GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 ```
+4. Input the following command into the <ins>Visual Studio Code</ins> terminal to run project
+```
+npm start
+```
+The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
 
 
 ## Getting Started
