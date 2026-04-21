@@ -4,10 +4,6 @@ import jwt from "jsonwebtoken";
 
 const store = new ProductStore()
 
-// MUST USE to Define "process.env.TOKEN_SECRET" as String
-// Prevents Error of Undefined "process.env.TOKEN_SECRET"
-const secret = process.env.TOKEN_SECRET as string;
-
 // Handler Functions
 const index = async (req: Request, res: Response) => {
     const products = await store.index()
@@ -27,7 +23,10 @@ const create = async (req: Request, res: Response) => {
     try {
         const authorizationHeader = req.headers.authorization
         const token = authorizationHeader?.split(' ')[1]
-        jwt.verify((token as string), secret)
+        
+        // MUST USE to Define "process.env.TOKEN_SECRET" as String
+        // Prevents Error of Undefined "process.env.TOKEN_SECRET"
+        jwt.verify((token as string), (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json('Access denied, invalid token')
@@ -57,7 +56,7 @@ const destroy = async (req: Request, res: Response) => {
     try {
         const authorizationHeader = req.headers.authorization
         const token = authorizationHeader?.split(' ')[1]
-        jwt.verify((token as string), secret)
+        jwt.verify((token as string), (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json('Access denied, invalid token')

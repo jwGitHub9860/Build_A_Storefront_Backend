@@ -4,10 +4,6 @@ import jwt from "jsonwebtoken";
 
 const store = new OrderStatus()
 
-// MUST USE to Define "process.env.TOKEN_SECRET" as String
-// Prevents Error of Undefined "process.env.TOKEN_SECRET"
-const secret = process.env.TOKEN_SECRET as string;
-
 // Handler Functions
 const index = async (req: Request, res: Response) => {
     const orders = await store.index()
@@ -18,7 +14,7 @@ const show = async (req: Request, res: Response) => {
     // Requires Token to Display Current User's Orders
     try {
         // Checks if Token is Valid
-        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
@@ -42,7 +38,10 @@ const create = async (req: Request, res: Response) => {
     try {
         const authorizationHeader = req.headers.authorization
         const token = authorizationHeader?.split(' ')[1]
-        jwt.verify((token as string), secret)
+        
+        // MUST USE to Define "process.env.TOKEN_SECRET" as String
+        // Prevents Error of Undefined "process.env.TOKEN_SECRET"
+        jwt.verify((token as string), (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json('Access denied, invalid token')
@@ -73,7 +72,7 @@ const destroy = async (req: Request, res: Response) => {
     try {
         const authorizationHeader = req.headers.authorization
         const token = authorizationHeader?.split(' ')[1]
-        jwt.verify((token as string), secret)
+        jwt.verify((token as string), (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json('Access denied, invalid token')

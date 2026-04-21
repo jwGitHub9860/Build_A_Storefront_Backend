@@ -4,16 +4,12 @@ import jwt from "jsonwebtoken";
 
 const store = new UserStore()
 
-// MUST USE to Define "process.env.TOKEN_SECRET" as String
-// Prevents Error of Undefined "process.env.TOKEN_SECRET"
-const secret = process.env.TOKEN_SECRET as string;
-
 // Handler Functions
 const index = async (req: Request, res: Response) => {
     // Requires Token to Display All Users
     try {
         // Checks if Token is Valid
-        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
@@ -33,7 +29,7 @@ const show = async (req: Request, res: Response) => {
     // Requires Token to Display User Information
     try {
         // Checks if Token is Valid
-        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
@@ -65,7 +61,7 @@ const create = async (req: Request, res: Response) => {
     // Requires Token to Create New User
     try {
         // Checks if Token is Valid
-        jwt.verify(req.body.token, process.env.TOKEN_SECRET as string)
+        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
@@ -76,7 +72,7 @@ const create = async (req: Request, res: Response) => {
 
         // Creates Token AFTER New User is Created
         // "token" will CONSTANTLY CHANGE
-        let token = jwt.sign({ user: newUser }, secret)
+        let token = jwt.sign({ user: newUser }, (process.env.TOKEN_SECRET as string))
         
         res.json({newUser, token})
     } catch (err) {
@@ -108,7 +104,7 @@ const authenticate = async (req: Request, res: Response) => {
 
         // Signs Token as Part of "user" Authenticate Action
         // "token" will CONSTANTLY CHANGE
-        let token = jwt.sign({ user: u }, secret)
+        let token = jwt.sign({ user: u }, (process.env.TOKEN_SECRET as string))
 
         res.json(token)
     } catch (err) {

@@ -3,9 +3,6 @@ import Client from "../database";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-const saltRounds = process.env.SALT_ROUNDS as string;
-const pepper = process.env.PASSWORD_PEPPER as string;
-
 // Builds TypeScript "User"
 export type User = {
     id?: Number,
@@ -55,8 +52,8 @@ export class UserStore {
 
             // Adds Protective Measures to Ensure No One Can Take Stolen Password & Use it in Application
             const hash = bcrypt.hashSync(
-                u.password + pepper,
-                parseInt(saltRounds)
+                u.password + (process.env.PASSWORD_PEPPER as string),
+                parseInt(process.env.SALT_ROUNDS as string)
             )
 
             // Saves Hashed Password to "password_digest"
@@ -94,7 +91,7 @@ export class UserStore {
 
         const result = await conn.query(sql, [username])
 
-        console.log(password+pepper)
+        console.log(password+(process.env.PASSWORD_PEPPER as string))
 
         // Checks if User Account Exists
         if (result.rows.length) {
@@ -102,7 +99,7 @@ export class UserStore {
             console.log(user)
 
             // Checks if Incoming Password WITH "pepper" Matches "password_digest"
-            if (bcrypt.compareSync(password+pepper, user.password_digest)) {
+            if (bcrypt.compareSync(password+(process.env.PASSWORD_PEPPER as string), user.password_digest)) {
                 return user
             }
         }
