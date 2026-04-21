@@ -12,6 +12,7 @@
   "author": "Udacity",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^1.19.0",
     "db-migrate-pg": "^1.5.2",
     "dotenv": "^17.4.1",
