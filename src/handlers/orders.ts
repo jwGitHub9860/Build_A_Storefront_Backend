@@ -90,9 +90,9 @@ const destroy = async (req: Request, res: Response) => {
 
 const ordersRoutes = (app: express.Application) => {
     app.get('/orders', index)
-    app.get('/orders/{:id}', show)
+    app.get('/orders/:id', show)
     app.post('/orders', create)
-    app.delete('/orders/{:id}', destroy)
+    app.delete('/orders/:id', destroy)
 }
 
 export default ordersRoutes

@@ -39,7 +39,7 @@ app.get('/products', (req: Request, res: Response) => {
     }
 })
 
-app.get('/products/{:id}', (req: Request, res: Response) => {
+app.get('/products/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the SHOW route')
     } catch (err) {
@@ -65,7 +65,7 @@ app.post('/products', (req: Request, res: Response) => {
 
 // TEMP: should I include "update" (or "EDIT") Method?
 
-app.delete('/products/{:id}', (req: Request, res: Response) => {
+app.delete('/products/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the DELETE route')
     } catch (err) {
@@ -84,7 +84,7 @@ app.get('/orders', (req: Request, res: Response) => {
     }
 })
 
-app.get('/orders/{:id}', (req: Request, res: Response) => {
+app.get('/orders/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the SHOW route')
     } catch (err) {
@@ -111,7 +111,7 @@ app.post('/orders', (req: Request, res: Response) => {
 
 // TEMP: should I include "update" (or "EDIT") Method?
 
-app.delete('/orders/{:id}', (req: Request, res: Response) => {
+app.delete('/orders/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the DELETE route')
     } catch (err) {
@@ -130,7 +130,7 @@ app.get('/users', (req: Request, res: Response) => {
     }
 })
 
-app.get('/users/{:id}', (req: Request, res: Response) => {
+app.get('/users/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the SHOW route')
     } catch (err) {
@@ -158,7 +158,7 @@ app.post('/users', (req: Request, res: Response) => {
 
 // TEMP: should I include "update" (or "EDIT") Method?
 
-app.delete('/users/{:id}', (req: Request, res: Response) => {
+app.delete('/users/:id', (req: Request, res: Response) => {
     try {
         
     } catch (err) {
