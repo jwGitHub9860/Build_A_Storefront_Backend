@@ -78,23 +78,25 @@ yarn watch
 ```
 yarn watch --ignoreConfig
 ```
-
-
-## How to Use the Project
-1. Input the following command into the <ins>Visual Studio Code</ins> terminal to run migrations
+20. Hit ```Ctrl+c``` to exit the ```yarn watch --ignoreConfig``` command
+21. Input the command below into the terminal to run migrations
 ```
 db-migrate up
 ```
-2. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
-3. Input the command shown below to fix the **assertion error**
+22. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
+23. Input the command shown below to fix the **assertion error**
 ```
 GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 ```
-4. Input the following command into the <ins>Visual Studio Code</ins> terminal to run project
+
+
+## How to Use the Project
+1. Input the following command into the <ins>Visual Studio Code</ins> terminal to run project
 ```
 npm start
 ```
 The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
+2. 
 
 
 ## Getting Started
