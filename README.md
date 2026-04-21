@@ -74,6 +74,10 @@ yarn
 ```
 yarn watch
 ```
+19. _If the previous commands fails_, input the command below into the terminal to start the server initially
+```
+yarn watch --ignoreConfig
+```
 
 
 ## How to Use the Project
