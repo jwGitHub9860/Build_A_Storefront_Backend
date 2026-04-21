@@ -166,3 +166,14 @@ app.delete('/users/:id', (req: Request, res: Response) => {
         res.json(err)
     }
 })
+
+// Shows Current Order by User
+app.get('/users/:userID/orders/:orderID/products', (req: Request, res: Response) => {
+    try {
+        // TEMP: change this message LATER?
+        res.send('this is the route that shows current order by user')
+    } catch (err) {
+        res.status(400)
+        res.json(err)
+    }
+})

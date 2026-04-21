@@ -105,4 +105,34 @@ export class UserStore {
         }
         return null
     }
+
+    // Attaches "order" to "user"
+    async addOrder(quantity: number, orderId: string, userId: string): Promise<User> {
+        // Obtains "user" to See if User Exists
+        try {
+            // @ts-ignore
+            const conn = await Client.connect()
+            const sql = 'SELECT * FROM users WHERE id=($1)'
+            const result = await conn.query(sql, [userId])
+            const user = result.rows[0]
+            if (user.id !== null) {
+                throw new Error(`Could not add order ${orderId} to user ${userId} because user does not exist ${user.id}`);
+            }
+            conn.release()
+        } catch (err) {
+            throw new Error(`Could not add order ${orderId} to user ${userId}: ${err}`);
+        }
+
+        try {
+            // @ts-ignore
+            const conn = await Client.connect()
+            const sql = 'INSERT INTO user_orders (quantity, orderId, userId) VALUES($1, $2, $3) RETURNING *'
+            const result = await conn.query(sql, [quantity, orderId, userId])
+            const user = result.rows[0]
+            conn.release()
+            return user
+        } catch (err) {
+            throw new Error(`Could not add order ${orderId} to user ${userId}: ${err}`);
+        }
+    }
 }

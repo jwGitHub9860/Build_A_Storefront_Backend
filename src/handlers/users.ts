@@ -113,6 +113,21 @@ const authenticate = async (req: Request, res: Response) => {
     }
 }
 
+// Shows how "order" Belongs to SINGLE "user"
+const addOrder = async (req: Request, res: Response) => {
+    const userId: string = (req.params.id as string)
+    const orderId: string = req.body.orderId
+    const quantity: number = parseInt(req.body.quantity)
+
+    try {
+        const addedOrder = await store.addOrder(quantity, orderId, userId)
+        res.json(addedOrder)
+    } catch (err) {
+        res.status(400)
+        res.json(err)
+    }
+}
+
 const usersRoutes = (app: express.Application) => {
     app.get('/users', index)
     app.get('/users/:id', show)
