@@ -32,7 +32,7 @@ export class ProductStore {
         try {
             // @ts-ignore
             const conn = await Client.connect()
-            const sql = 'SELECT * FROM products WHERE product=($1)'
+            const sql = 'SELECT * FROM products WHERE id=($1)'
             const result = await conn.query(sql, [id])
             conn.release()
             return result.rows[0]
