@@ -91,7 +91,14 @@ GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 
 
 ## How to Use the Project
-1. Input the following command into the <ins>Visual Studio Code</ins> terminal to run project
+1. _If Visual Studio Code is <ins>not open</ins>,_ skip to _Step 4_
+2. Open **Visual Studio Code**
+3. Open terminal in **Visual Studio Code**
+4. Input the following command into the terminal to test the project
+```
+npm test
+```
+5. Input the following command into the terminal to run the project
 ```
 npm start
 ```
