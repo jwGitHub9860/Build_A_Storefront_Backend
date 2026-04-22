@@ -51,12 +51,12 @@ describe("Product Model", () => {
 
     it('show method should return the correct product', async () => {
         const result = await store.show("1");
-        expect(result).toEqual([{
+        expect(result).toEqual({
             id: 1,
             name: "apples",
             price: 5,
             category: "food"
-        }]);
+        });
     });
 
     it('delete method should remove the product', async () => {

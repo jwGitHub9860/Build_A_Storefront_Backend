@@ -63,7 +63,7 @@ describe("User Model", () => {
 
     it('show method should return the correct user', async () => {
         const result = await store.show("1");
-        expect(result).toEqual([{
+        expect(result).toEqual({
             id: 1,
             firstName: "John",
             lastName: "Doe",
@@ -72,7 +72,7 @@ describe("User Model", () => {
 
             // TEMP: does this need Correcting?
             password_digest: "password123",
-        }]);
+        });
     });
     
     it('delete method should remove the user', async () => {
