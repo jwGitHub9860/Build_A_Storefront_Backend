@@ -2,7 +2,8 @@ import { Order, OrderStore } from "../order";
 
 const store = new OrderStore()
 
-// MUST USE "jest" to DEFINE "describe", "it" & "expect" ("mocha" does NOT Work)
+// MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
+// DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
 describe("Order Model", () => {
     // Checks that Method Exists
     it('should have an index method', () => {
