@@ -56,8 +56,8 @@ export class UserStore {
                 parseInt(process.env.SALT_ROUNDS as string)
             )
 
-            // Saves Hashed Password to "password_digest"
-            const result = await conn.query(sql, [u.username, hash])
+            // Saves Hashed Password to "password_digest" WHILE Creating New User
+            const result = await conn.query(sql, [u.firstName, u.lastName, u.username, u.password, hash])
             
             const user = result.rows[0]
             conn.release()
