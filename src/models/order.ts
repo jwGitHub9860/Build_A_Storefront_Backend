@@ -33,7 +33,7 @@ export class OrderStatus {
         try {
             // @ts-ignore
             const conn = await Client.connect()
-            const sql = 'SELECT * FROM orders WHERE order=($1)'
+            const sql = 'SELECT * FROM orders WHERE id=($1)'
             const result = await conn.query(sql, [id])
             conn.release()
             return result.rows[0]
