@@ -45,7 +45,7 @@ export class ProductStore {
         try {
             // @ts-ignore
             const conn = await client.connect()
-            const sql = 'INSERT INTO products (name, price, category) VALUES ($1, $2, $3, $4) RETURNING *'
+            const sql = 'INSERT INTO products (name, price, category) VALUES ($1, $2, $3) RETURNING *'
             const result = await conn.query(sql, [p.name, p.price, p.category])
             const product = result.rows[0]
             conn.release()
