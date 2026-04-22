@@ -1,5 +1,5 @@
 // @ts-ignore
-import Client from "../database";
+import client from "../database";
 import jwt from "jsonwebtoken";
 
 // Builds TypeScript "Product"
@@ -18,7 +18,7 @@ export class ProductStore {
         // Protects from ANY ERRORS
         try {
             // @ts-ignore
-            const conn = await Client.connect()
+            const conn = await client.connect()
             const sql = 'SELECT * FROM products'
             const result = await conn.query(sql)
             conn.release()
@@ -31,7 +31,7 @@ export class ProductStore {
     async show(id: string): Promise<Product> {
         try {
             // @ts-ignore
-            const conn = await Client.connect()
+            const conn = await client.connect()
             const sql = 'SELECT * FROM products WHERE id=($1)'
             const result = await conn.query(sql, [id])
             conn.release()
@@ -44,7 +44,7 @@ export class ProductStore {
     async create(p: Product): Promise<Product> {
         try {
             // @ts-ignore
-            const conn = await Client.connect()
+            const conn = await client.connect()
             const sql = 'INSERT INTO products (name, price, category) VALUES ($1, $2, $3, $4) RETURNING *'
             const result = await conn.query(sql, [p.name, p.price, p.category])
             const product = result.rows[0]
@@ -60,7 +60,7 @@ export class ProductStore {
     async delete(id: string): Promise<Product> {
         try {
             // @ts-ignore
-            const conn = await Client.connect()
+            const conn = await client.connect()
             const sql = 'DELETE FROM products WHERE id=($1)'
             const result = await conn.query(sql, [id])
             const product = result.rows[0]
