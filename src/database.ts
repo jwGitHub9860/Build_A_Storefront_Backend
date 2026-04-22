@@ -13,7 +13,15 @@ const {
     ENV
 } = process.env
 
-let client
+const client = new Pool({
+    host: POSTGRES_HOST,
+    database: POSTGRES_DB,
+    user: POSTGRES_USER,
+    password: POSTGRES_PASSWORD
+})
+
+// TEMP: do I still need This?
+/*let client
 console.log(ENV)
 
 if (ENV == 'test') {
@@ -32,6 +40,6 @@ if (ENV == 'dev') {
         user: POSTGRES_USER,
         password: POSTGRES_PASSWORD
     })
-}
+}*/
 
 export default client
