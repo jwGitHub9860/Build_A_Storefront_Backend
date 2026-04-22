@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import { Product, ProductStore } from "./models/product";
-import { Order, OrderStatus } from "./models/order";
+import { Order, OrderStore } from "./models/order";
 import { User, UserStore } from "./models/user";
 import productsRoutes from "./handlers/products";
 import ordersRoutes from "./handlers/orders";

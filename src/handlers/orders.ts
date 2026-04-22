@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
-import { Order, OrderStatus } from "../models/order";
+import { Order, OrderStore } from "../models/order";
 import jwt from "jsonwebtoken";
 
-const store = new OrderStatus()
+const store = new OrderStore()
 
 // Handler Functions
 const index = async (req: Request, res: Response) => {

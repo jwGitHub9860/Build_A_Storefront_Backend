@@ -12,7 +12,7 @@ export type Order = {
 }
 
 // Build Out Methods for All CRUD Actions
-export class OrderStatus {
+export class OrderStore {
     // Obtains List of All Items in Database
     // Method MUST Be Asynchronous Because All Calls to Database will be Promises
     async index(): Promise<Order[]> {

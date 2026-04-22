@@ -1,6 +1,6 @@
-import { Order, OrderStatus } from "../order";
+import { Order, OrderStore } from "../order";
 
-const store = new OrderStatus()
+const store = new OrderStore()
 
 // MUST USE "jest" to DEFINE "describe", "it" & "expect" ("mocha" does NOT Work)
 describe("Order Model", () => {
