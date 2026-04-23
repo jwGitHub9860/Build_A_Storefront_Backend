@@ -50,7 +50,6 @@ const create = async (req: Request, res: Response) => {
     
     try {
         const order: Order = {
-            id: req.body.id,
             productOrderId: req.body.productOrderId,
             quantity: req.body.quantity,
             userId: req.body.userId,

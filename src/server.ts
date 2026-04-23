@@ -50,7 +50,6 @@ app.get('/products/:id', (req: Request, res: Response) => {
 
 app.post('/products', (req: Request, res: Response) => {
     const product: Product = {
-        id: req.body.id,
         name: req.body.name,
         price: req.body.price,
         category: req.body.category,
@@ -95,7 +94,6 @@ app.get('/orders/:id', (req: Request, res: Response) => {
 
 app.post('/orders', (req: Request, res: Response) => {
     const order: Order = {
-        id: req.body.id,
         productOrderId: req.body.productOrderId,
         quantity: req.body.quantity,
         userId: req.body.userId,
@@ -141,12 +139,10 @@ app.get('/users/:id', (req: Request, res: Response) => {
 
 app.post('/users', (req: Request, res: Response) => {
     const user: User = {
-        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
         password: req.body.password,
-        password_digest: req.body.password_digest,
     }
     try {
         res.send('this is the CREATE route')
@@ -170,12 +166,10 @@ app.delete('/users/:id', (req: Request, res: Response) => {
 // Checks User Authentication
 app.post('/users/authenticate', (req: Request, res: Response) => {
     const user: User = {
-        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
         password: req.body.password,
-        password_digest: req.body.password_digest,
     }
     try {
         res.send('this is the USER AUTHENTICATION route')

@@ -50,12 +50,10 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const user: User = {
-        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
         password: req.body.password,
-        password_digest: req.body.password_digest,
     }
 
     // Requires Token to Create New User
@@ -92,12 +90,10 @@ const destroy = async (req: Request, res: Response) => {
 
 const authenticate = async (req: Request, res: Response) => {
     const user: User = {
-        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
         password: req.body.password,
-        password_digest: req.body.password_digest
     }
     try {
         const u = await store.authenticate(user.username, user.password)

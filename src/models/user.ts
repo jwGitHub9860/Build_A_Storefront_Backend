@@ -10,7 +10,7 @@ export type User = {
     lastName: string,
     username: string,
     password: string,
-    password_digest: string
+    password_digest?: string
 }
 
 // Build Out Methods for All CRUD Actions

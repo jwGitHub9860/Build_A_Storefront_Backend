@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 // Builds TypeScript "Product"
 export type Product = {
-    id: Number;
+    id?: Number;
     name: string;
     price: number;
     category: string;

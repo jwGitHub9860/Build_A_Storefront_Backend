@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 // Builds TypeScript "Order"
 export type Order = {
-    id: Number;
+    id?: Number;
     productOrderId: Number;
     quantity: Number;
     userId: Number;
