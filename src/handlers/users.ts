@@ -56,22 +56,13 @@ const create = async (req: Request, res: Response) => {
         password: req.body.password,
     }
 
-    // Requires Token to Create New User
-    try {
-        // Checks if Token is Valid
-        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
-    } catch (err) {
-        res.status(401)
-        res.json(`Invalid token ${err}`)
-    }
-
+    // "create()" User Method should ONLY CREATE Token, NOT Validate
     try {
         const newUser = await store.create(user)
 
         // Creates Token AFTER New User is Created
         // "token" will CONSTANTLY CHANGE
         let token = jwt.sign({ user: newUser }, (process.env.TOKEN_SECRET as string))
-        
         res.json({newUser, token})
     } catch (err) {
         res.status(400)
