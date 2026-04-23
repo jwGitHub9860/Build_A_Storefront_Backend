@@ -48,7 +48,7 @@ export class UserStore {
         try {
             // @ts-ignore
             const conn = await client.connect()
-            const sql = 'INSERT INTO users (firstName, lastName, username, password) VALUES ($1, $2, $3, $4) RETURNING *'
+            const sql = 'INSERT INTO users (firstName, lastName, username, password, password_digest) VALUES ($1, $2, $3, $4, $5) RETURNING *'
 
             // Adds Protective Measures to Ensure No One Can Take Stolen Password & Use it in Application
             const hash = bcrypt.hashSync(
