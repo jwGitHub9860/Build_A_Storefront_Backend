@@ -167,6 +167,24 @@ app.delete('/users/:id', (req: Request, res: Response) => {
     }
 })
 
+// Checks User Authentication
+app.post('/users/authenticate', (req: Request, res: Response) => {
+    const user: User = {
+        id: req.body.id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        username: req.body.username,
+        password: req.body.password,
+        password_digest: req.body.password_digest,
+    }
+    try {
+        res.send('this is the USER AUTHENTICATION route')
+    } catch (err) {
+        res.status(400)
+        res.json(err)
+    }
+})
+
 // Shows Current Order by User
 app.get('/users/:userID/orders/:orderID/products', (req: Request, res: Response) => {
     try {
