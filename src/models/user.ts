@@ -58,7 +58,7 @@ export class UserStore {
             )
 
             // Saves Hashed Password to "password_digest" WHILE Creating New User
-            const result = await conn.query(sql, [u.firstName, u.lastName, u.username, u.password, hash])
+            const result = await conn.query(sql, [u.firstName, u.lastName, u.username, hash])
             
             const user = result.rows[0]
             conn.release()
