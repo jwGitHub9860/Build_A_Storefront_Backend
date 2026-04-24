@@ -26,24 +26,16 @@ describe("User Model", () => {
 
     it('create method should add a user', async () => {
         const result = await store.create({
-            id: 1,
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
             password: "password123",
-
-            // TEMP: does this need Correcting?
-            password_digest: "password123",
         });
         expect(result).toEqual({
-            id: 1,
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
             password: "password123",
-
-            // TEMP: does this need Correcting?
-            password_digest: "password123",
         });
     });
 
@@ -51,28 +43,20 @@ describe("User Model", () => {
     it('index method should return a list of users', async () => {
         const result = await store.index();
         expect(result).toEqual([{
-            id: 1,
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
             password: "password123",
-
-            // TEMP: does this need Correcting?
-            password_digest: "password123",
         }]);
     });
 
     it('show method should return the correct user', async () => {
         const result = await store.show("1");
         expect(result).toEqual({
-            id: 1,
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
             password: "password123",
-
-            // TEMP: does this need Correcting?
-            password_digest: "password123",
         });
     });
     
