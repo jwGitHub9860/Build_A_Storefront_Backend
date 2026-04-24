@@ -89,6 +89,42 @@ db-migrate up
 GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 ```
 
+24. Reopen **SQL Shell (psql)**
+25. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
+```
+\dt
+```
+26. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
+```
+SELECT * FROM users;
+SELECT * FROM orders;
+SELECT * FROM products;
+```
+27. _If "username" and "password_digest" columns are missing_, input each command below to add the "**username**" and "**password_digest**" columns to the "**users**" table
+```
+ALTER TABLE users DROP COLUMN password VARCHAR(64) NOT NULL;
+ALTER TABLE users ADD COLUMN username VARCHAR(64) NOT NULL;
+ALTER TABLE users ADD COLUMN password VARCHAR(64) NOT NULL;
+ALTER TABLE users ADD COLUMN password_digest VARCHAR(64) NOT NULL;
+```
+The following output will confirm "**username**" column creation: **ALTER TABLE**
+28. Input the command below to ensure that the "**users**" table has the "**username**" column
+```
+SELECT * FROM users;
+```
+29. Input the command below to input the data into the "**users**" table
+```
+INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
+```
+The following output will confirm "**users**" new data addition: **INSERT 0 1**
+30. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
+```
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Dane', 'Jerry', 'userDane', 'password123');
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Dana', 'Jamie', 'userDana', 'password123');
+```
+The following output will confirm "**username**" column creation: **ALTER TABLE**
+
 
 ## How to Use the Project
 1. _If Visual Studio Code is <ins>not open</ins>,_ skip to _Step 4_
