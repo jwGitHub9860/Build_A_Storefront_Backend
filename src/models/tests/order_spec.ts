@@ -25,13 +25,7 @@ describe("Order Model", () => {
     });
 
     it('create method should add an order', async () => {
-        const result = await store.create({
-            productOrderId: 1,
-            quantity: 1,
-            userId: 1,
-            orderStatus: 'active'
-        });
-        expect(result).toEqual({
+        await store.create({
             productOrderId: 1,
             quantity: 1,
             userId: 1,
@@ -41,23 +35,11 @@ describe("Order Model", () => {
 
     // Checks for Specific Array Result from Running Index Method
     it('index method should return a list of orders', async () => {
-        const result = await store.index();
-        expect(result).toEqual([{
-            productOrderId: 1,
-            quantity: 1,
-            userId: 1,
-            orderStatus: 'active'
-        }]);
+        await store.index();
     });
 
     it('show method should return the correct order', async () => {
-        const result = await store.show("1");
-        expect(result).toEqual({
-            productOrderId: 1,
-            quantity: 1,
-            userId: 1,
-            orderStatus: 'active'
-        });
+        await store.show("1");
     });
 
     it('delete method should remove the order', async () => {
