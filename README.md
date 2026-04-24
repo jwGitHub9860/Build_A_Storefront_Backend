@@ -100,24 +100,29 @@ SELECT * FROM users;
 SELECT * FROM orders;
 SELECT * FROM products;
 ```
-27. _If "username" and "password_digest" columns are missing_, input each command below to add the "**username**" and "**password_digest**" columns to the "**users**" table
+27. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
 ```
-ALTER TABLE users DROP COLUMN password VARCHAR(64) NOT NULL;
 ALTER TABLE users ADD COLUMN username VARCHAR(64) NOT NULL;
-ALTER TABLE users ADD COLUMN password VARCHAR(64) NOT NULL;
 ALTER TABLE users ADD COLUMN password_digest VARCHAR(64) NOT NULL;
 ```
 The following output will confirm "**username**" column creation: **ALTER TABLE**
-28. Input the command below to ensure that the "**users**" table has the "**username**" column
+
+28. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
+```
+ALTER TABLE users DROP COLUMN password;
+```
+The following output will confirm "**password**" column deletion: **ALTER TABLE**
+
+29. Input the command below to ensure that the "**users**" table has the "**username**" column
 ```
 SELECT * FROM users;
 ```
-29. Input the command below to input the data into the "**users**" table
+30. Input the command below to input the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
 ```
 The following output will confirm "**users**" new data addition: **INSERT 0 1**
-30. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
+31. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Dane', 'Jerry', 'userDane', 'password123');
