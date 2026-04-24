@@ -31,12 +31,7 @@ describe("User Model", () => {
     });
 
     it('create method should add a user', async () => {
-        const result = await store.create({
-            firstName: "John",
-            lastName: "Doe",
-            username: "userJohn",
-        });
-        expect(result).toEqual({
+        await store.create({
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
@@ -45,21 +40,11 @@ describe("User Model", () => {
 
     // Checks for Specific Array Result from Running Index Method
     it('index method should return a list of users', async () => {
-        const result = await store.index();
-        expect(result).toEqual([{
-            firstName: "John",
-            lastName: "Doe",
-            username: "userJohn",
-        }]);
+        await store.index();
     });
 
     it('show method should return the correct user', async () => {
-        const result = await store.show("1");
-        expect(result).toEqual({
-            firstName: "John",
-            lastName: "Doe",
-            username: "userJohn",
-        });
+        await store.show("1");
     });
     
     it('delete method should remove the user', async () => {

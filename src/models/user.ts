@@ -19,7 +19,7 @@ export class UserStore {
     async resetDatabase() {
         await client.query('TRUNCATE TABLE users RESTART IDENTITY CASCADE');
     }
-    
+
     // Obtains List of All Items in Database
     // Method MUST Be Asynchronous Because All Calls to Database will be Promises
     async index(): Promise<User[]> {
