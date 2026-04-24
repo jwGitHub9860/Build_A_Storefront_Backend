@@ -13,6 +13,11 @@ export type Order = {
 
 // Build Out Methods for All CRUD Actions
 export class OrderStore {
+    // Clears "orders" Database
+    async resetDatabase() {
+        await client.query('TRUNCATE TABLE orders RESTART IDENTITY CASCADE');
+    }
+
     // Obtains List of All Items in Database
     // Method MUST Be Asynchronous Because All Calls to Database will be Promises
     async index(): Promise<Order[]> {
