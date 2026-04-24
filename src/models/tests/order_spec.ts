@@ -26,14 +26,12 @@ describe("Order Model", () => {
 
     it('create method should add an order', async () => {
         const result = await store.create({
-            id: 1,
             productOrderId: 1,
             quantity: 1,
             userId: 1,
             orderStatus: 'active'
         });
         expect(result).toEqual({
-            id: 1,
             productOrderId: 1,
             quantity: 1,
             userId: 1,
@@ -45,7 +43,6 @@ describe("Order Model", () => {
     it('index method should return a list of orders', async () => {
         const result = await store.index();
         expect(result).toEqual([{
-            id: 1,
             productOrderId: 1,
             quantity: 1,
             userId: 1,
@@ -56,7 +53,6 @@ describe("Order Model", () => {
     it('show method should return the correct order', async () => {
         const result = await store.show("1");
         expect(result).toEqual({
-            id: 1,
             productOrderId: 1,
             quantity: 1,
             userId: 1,

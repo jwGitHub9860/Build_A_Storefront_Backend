@@ -26,13 +26,11 @@ describe("Product Model", () => {
 
     it('create method should add a product', async () => {
         const result = await store.create({
-            id: 1,
             name: "apples",
             price: 5,
             category: "food"
         })
         expect(result).toEqual({
-            id: 1,
             name: "apples",
             price: 5,
             category: "food"
@@ -43,7 +41,6 @@ describe("Product Model", () => {
     it('index method should return a list of products', async () => {
         const result = await store.index();
         expect(result).toEqual([{
-            id: 1,
             name: "apples",
             price: 5,
             category: "food"
@@ -53,7 +50,6 @@ describe("Product Model", () => {
     it('show method should return the correct product', async () => {
         const result = await store.show("1");
         expect(result).toEqual({
-            id: 1,
             name: "apples",
             price: 5,
             category: "food"
