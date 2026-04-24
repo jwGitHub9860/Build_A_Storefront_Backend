@@ -12,6 +12,11 @@ export type Product = {
 
 // Build Out Methods for All CRUD Actions
 export class ProductStore {
+    // Clears "products" Database
+    async resetDatabase () {
+        await client.query('TRUNCATE TABLE products RESTART IDENTITY CASCADE');
+    }
+
     // Obtains List of All Items in Database
     // Method MUST Be Asynchronous Because All Calls to Database will be Promises
     async index(): Promise<Product[]> {
