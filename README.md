@@ -325,6 +325,8 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 ## Credits
 ###### References used while making project
 
+Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They Are Declared or in a Random Order?” _Stack Overflow_, stackoverflow.com/#organization, 5 May 2015, stackoverflow.com/questions/30051693/is-jasmine-supposed-to-execute-specs-in-the-order-they-are-declared-or-in-a-rand#:~:text=3%20Answers,4. Accessed 23 Apr. 2026.
+
 “GitHub Profile README Generator.” _GitHub Profile Readme Generator | GitHub Profile Readme Generator_, rahuldkjain.github.io/gh-profile-readme-generator/. Accessed 8 Apr. 2026.
 
 “Make a README.” _GitHub_, GitHub, www.makeareadme.com/. Accessed 8 Apr. 2026.
