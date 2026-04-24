@@ -29,13 +29,11 @@ describe("User Model", () => {
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
-            password: "password123",
         });
         expect(result).toEqual({
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
-            password: "password123",
         });
     });
 
@@ -46,7 +44,6 @@ describe("User Model", () => {
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
-            password: "password123",
         }]);
     });
 
@@ -56,7 +53,6 @@ describe("User Model", () => {
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
-            password: "password123",
         });
     });
     

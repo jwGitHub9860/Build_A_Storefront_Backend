@@ -87,7 +87,8 @@ const authenticate = async (req: Request, res: Response) => {
         password: req.body.password,
     }
     try {
-        const u = await store.authenticate(user.username, user.password)
+        // ! - Defines "user.password" AS undefined
+        const u = await store.authenticate(user.username, user.password!)
 
         // Signs Token as Part of "user" Authenticate Action
         // "token" will CONSTANTLY CHANGE

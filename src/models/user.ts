@@ -9,7 +9,7 @@ export type User = {
     firstName: string,
     lastName: string,
     username: string,
-    password: string,
+    password?: string,
     password_digest?: string
 }
 
@@ -48,12 +48,13 @@ export class UserStore {
         try {
             // @ts-ignore
             const conn = await client.connect()
-            const sql = 'INSERT INTO users (firstName, lastName, username, password, password_digest) VALUES ($1, $2, $3, $4, $5) RETURNING *'
+            const sql = `INSERT INTO users (firstName, lastName, username, password_digest) VALUES ($1, $2, $3, $4) RETURNING *`
 
             // Adds Protective Measures to Ensure No One Can Take Stolen Password & Use it in Application
             const hash = bcrypt.hashSync(
-                u.password + (process.env.PASSWORD_PEPPER as string),
-                parseInt(process.env.SALT_ROUNDS as string)
+                // ! - Defines "process.env.PASSWORD_PEPPER" & "process.env.SALT_ROUNDS" AS undefined
+                u.password + process.env.PASSWORD_PEPPER!,
+                parseInt(process.env.SALT_ROUNDS!)
             )
 
             // Saves Hashed Password to "password_digest" WHILE Creating New User

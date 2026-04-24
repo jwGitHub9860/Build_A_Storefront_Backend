@@ -4,6 +4,5 @@ CREATE TABLE users (
     firstName VARCHAR(64) NOT NULL,
     lastName VARCHAR(64) NOT NULL,
     username VARCHAR(64) NOT NULL,
-    password VARCHAR(64) NOT NULL,
-    password_digest VARCHAR NOT NULL
+    password_digest VARCHAR
 );
