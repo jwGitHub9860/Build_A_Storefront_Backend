@@ -35,9 +35,7 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const order: Order = {
-        productOrderId: req.body.productOrderId,
         quantity: Number(req.query.quantity),
-        userId: req.body.userId,
         orderStatus: req.query.orderStatus as string,
     }
 

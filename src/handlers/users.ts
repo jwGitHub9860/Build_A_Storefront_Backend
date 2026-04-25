@@ -53,7 +53,6 @@ const create = async (req: Request, res: Response) => {
         firstName: req.query.firstName as string,
         lastName: req.query.lastName as string,
         username: req.query.username as string,
-        password: req.body.password,
     }
 
     // "create()" User Method should ONLY CREATE Token, NOT Validate
