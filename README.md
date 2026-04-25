@@ -160,8 +160,10 @@ http://localhost:3000/products
 ```
 **<ins>Product Show Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/products/2
 ```
+"**1**" _should not be used as ID value since it is used for tests in Visual Studio Code._
+
 **<ins>Product Create Route:</ins>** (**POST** request)
 ```
 http://localhost:3000/products
