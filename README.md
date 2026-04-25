@@ -122,6 +122,7 @@ SELECT * FROM users;
 INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
 ```
 The following output will confirm "**users**" new data addition: **INSERT 0 1**
+
 31. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
