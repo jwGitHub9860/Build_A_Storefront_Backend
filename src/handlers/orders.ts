@@ -34,6 +34,13 @@ const show = async (req: Request, res: Response) => {
 }
 
 const create = async (req: Request, res: Response) => {
+    const order: Order = {
+        productOrderId: req.body.productOrderId,
+        quantity: Number(req.query.quantity),
+        userId: req.body.userId,
+        orderStatus: req.query.orderStatus as string,
+    }
+
     // Protects "orders" Create Route by Requiring JWT Validation
     try {
         const authorizationHeader = req.headers.authorization
@@ -49,13 +56,6 @@ const create = async (req: Request, res: Response) => {
     }
     
     try {
-        const order: Order = {
-            productOrderId: req.body.productOrderId,
-            quantity: req.body.quantity,
-            userId: req.body.userId,
-            orderStatus: req.body.orderStatus,
-        }
-
         const newOrder = await store.create(order)
         res.json(newOrder)
     } catch (err) {

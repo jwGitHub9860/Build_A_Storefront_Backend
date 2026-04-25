@@ -19,6 +19,12 @@ const show = async (req: Request, res: Response) => {
 }
 
 const create = async (req: Request, res: Response) => {
+    const product: Product = {
+        name: req.query.name as string,
+        price: Number(req.query.price),
+        category: req.query.category as string,
+    }
+
     // Protects "products" Create Route by Requiring JWT Validation
     try {
         const authorizationHeader = req.headers.authorization
@@ -34,12 +40,6 @@ const create = async (req: Request, res: Response) => {
     }
 
     try {
-        const product: Product = {
-            name: req.body.name,
-            price: req.body.price,
-            category: req.body.category,
-        }
-
         const newProduct = await store.create(product)
         res.json(newProduct)
     } catch (err) {

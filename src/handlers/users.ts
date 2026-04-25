@@ -9,7 +9,7 @@ const index = async (req: Request, res: Response) => {
     // Requires Token to Display All Users
     try {
         // Checks if Token is Valid
-        jwt.verify(req.body.token, (process.env.TOKEN_SECRET as string))
+        jwt.verify(req.query.token as string, (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
@@ -50,9 +50,9 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const user: User = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        username: req.body.username,
+        firstName: req.query.firstName as string,
+        lastName: req.query.lastName as string,
+        username: req.query.username as string,
         password: req.body.password,
     }
 
