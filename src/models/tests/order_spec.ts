@@ -48,9 +48,7 @@ describe("Order Model", () => {
         });
 
         await orderStore.create({
-            productOrderId: 1,
             quantity: 1,
-            userId: 1,
             orderStatus: 'active'
         });
     });
