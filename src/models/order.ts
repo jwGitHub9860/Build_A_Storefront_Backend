@@ -15,6 +15,7 @@ export type Order = {
 export class OrderStore {
     // Clears "orders" Database
     async resetDatabase() {
+        // @ts-ignore
         await client.query('TRUNCATE TABLE orders RESTART IDENTITY CASCADE');
     }
 

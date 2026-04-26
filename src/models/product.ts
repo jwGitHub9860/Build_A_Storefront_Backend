@@ -14,6 +14,7 @@ export type Product = {
 export class ProductStore {
     // Clears "products" Database
     async resetDatabase () {
+        // @ts-ignore
         await client.query('TRUNCATE TABLE products RESTART IDENTITY CASCADE');
     }
 

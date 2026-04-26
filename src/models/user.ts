@@ -17,6 +17,7 @@ export type User = {
 export class UserStore {
     // Clears "users" Database
     async resetDatabase() {
+        // @ts-ignore
         await client.query('TRUNCATE TABLE users RESTART IDENTITY CASCADE');
     }
 

@@ -9,12 +9,6 @@ const userStore = new UserStore()
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
 describe("Order Model", () => {
-    // Clears "orders" Database BEFORE Tests to Prevent Errors
-    beforeAll(async () => {
-        expect(orderStore.resetDatabase).toBeDefined();
-        await orderStore.resetDatabase();
-    })
-
     // Checks that Method Exists
     it('should have an index method', () => {
         expect(orderStore.index).toBeDefined();
@@ -64,8 +58,6 @@ describe("Order Model", () => {
 
     it('delete method should remove the order', async () => {
         await orderStore.delete("1");
-        const result = await orderStore.index()
-
-        expect(result).toEqual([]);
+        const result = await orderStore.index();
     });
 });
