@@ -127,6 +127,7 @@ const usersRoutes = (app: express.Application) => {
     app.post('/users', create)
     app.delete('/users/:id', destroy)
     app.post('/users/authenticate', authenticate)
+    app.get('/users/:userID/orders/:orderID/products', addOrder)
 }
 
 export default usersRoutes
