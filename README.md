@@ -22,108 +22,136 @@ psql postgres
 ```
 4. _If Steps 1-3 fail,_ open **SQL Shell (psql)**
 5. Input the following <ins>psql connection parameters</ins> to enable use of _SQL Shell (psql)_: **Server**, **Database**, **Username**, **Password**
-6. Input the command below into the terminal to create a new user for project
+6. Input both of the commands below to create new users for project
 ```
 CREATE USER shopping_user WITH PASSWORD 'password123';
+CREATE USER shopping_user_test WITH PASSWORD 'password123';
 ```
-7. Input the command below into the terminal to create new database
+The following output should be displayed for each command: **CREATE ROLE**
+
+7. Input the following command to check if the roles are created successfully
+```
+\du
+```
+8. Input each of the following commands shown below to create new database for **Postman** and new database for **testing**
 ```
 CREATE DATABASE shopping;
+CREATE DATABASE shopping_test;
 ```
-8. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
+The following output should be displayed for each command: **CREATE DATABASE**
+
+9. Input the following command to check if the databases are created successfully
+```
+\l
+```
+10. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
 ```
 \c shopping
 ```
-9. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
+11. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
 ```
 GRANT ALL PRIVILEGES ON DATABASE shopping TO shopping_user;
 ```
-10. Input the command below into the terminal to test if _Steps 5-8_ work
+12. Input the command below into the terminal to test if _Steps 5-8_ work
 ```
 \dt
 ```
 The following output should be displayed: **No relations found** or **Did not find an relations.**
 
-11. Open **Visual Studio Code**
-12. Open terminal in **Visual Studio Code**
-13. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
+13. Input the command below into the terminal to connect to _shopping_test_ database as _postgres_ user
+```
+\c shopping_test
+```
+14. Input the command below into the terminal to grant **shopping_user_test** user all privileges to _shopping_test_ database
+```
+GRANT ALL PRIVILEGES ON DATABASE shopping_test TO shopping_user_test;
+```
+15. Input the command below into the terminal to test if _Steps 5-8_ work
+```
+\dt
+```
+The following output should be displayed: **No relations found** or **Did not find an relations.**
+
+16. Open **Visual Studio Code**
+17. Open terminal in **Visual Studio Code**
+18. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
 ```
 npm install yarn -g
 ```
-14. Input the commands below into the terminal to install **db-migrate** and **db-migrate-pg** and enable **db-migrate** commands to be run in _Visual Studio Code_
+19. Input the commands below into the terminal to install **db-migrate** and **db-migrate-pg** and enable **db-migrate** commands to be run in _Visual Studio Code_
 ```
 npm install db-migrate -g
 npm install db-migrate-pg
 ```
-15. Input the command below into the terminal to check _node version_
+20. Input the command below into the terminal to check _node version_
 ```
 node -v
 ```
-16. _If node is below 10 or 12_, run the following commands to update the _node version_
+21. _If node is below 10 or 12_, run the following commands to update the _node version_
 ```
 npm install -g n
 n 10.18.0
 PATH="$PATH"
 node -v
 ```
-17. Input the command below into the terminal to install the required packages and create the node modules folder
+22. Input the command below into the terminal to install the required packages and create the node modules folder
 ```
 yarn
 ```
-18. Input the command below into the terminal to start the server initially
+23. Input the command below into the terminal to start the server initially
 ```
 yarn watch
 ```
-19. _If the previous commands fails_, input the command below into the terminal to start the server initially
+24. _If the previous commands fails_, input the command below into the terminal to start the server initially
 ```
 yarn watch --ignoreConfig
 ```
-20. Hit ```Ctrl+c``` to exit the ```yarn watch --ignoreConfig``` command
-21. Input the command below into the terminal to run migrations
+25. Hit ```Ctrl+c``` to exit the ```yarn watch --ignoreConfig``` command
+26. Input the command below into the terminal to run migrations
 ```
 db-migrate up
 ```
-22. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
-23. Input the command shown below to fix the **assertion error**
+27. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
+28. Input the command shown below to fix the **assertion error**
 ```
 GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
 ```
 
-24. Reopen **SQL Shell (psql)**
-25. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
+29. Reopen **SQL Shell (psql)**
+30. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
 ```
 \dt
 ```
-26. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
+31. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
 ```
 SELECT * FROM users;
 SELECT * FROM orders;
 SELECT * FROM products;
 ```
-27. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
+32. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
 ```
 ALTER TABLE users ADD COLUMN username VARCHAR(64) NOT NULL;
 ALTER TABLE users ADD COLUMN password_digest VARCHAR(64) NOT NULL;
 ```
 The following output will confirm "**username**" column creation: **ALTER TABLE**
 
-28. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
+33. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
 ```
 ALTER TABLE users DROP COLUMN password;
 ```
 The following output will confirm "**password**" column deletion: **ALTER TABLE**
 
-29. Input the command below to ensure that the "**users**" table has the "**username**" column
+34. Input the command below to ensure that the "**users**" table has the "**username**" column
 ```
 SELECT * FROM users;
 ```
-30. Input the command below to input the data into the "**users**" table
+35. Input the command below to input the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
 ```
 The following output will confirm "**users**" new data addition: **INSERT 0 1**
 
-31. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
+36. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Dane', 'Jerry', 'userDane', 'password123');
