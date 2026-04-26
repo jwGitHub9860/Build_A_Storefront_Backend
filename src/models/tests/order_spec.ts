@@ -58,6 +58,6 @@ describe("Order Model", () => {
 
     it('delete method should remove the order', async () => {
         await orderStore.delete("1");
-        const result = await orderStore.index();
+        await orderStore.index();
     });
 });

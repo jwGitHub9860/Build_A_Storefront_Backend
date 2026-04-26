@@ -43,6 +43,6 @@ describe("Product Model", () => {
 
     it('delete method should remove the product', async () => {
         await store.delete("1");
-        const result = await store.index();
+        await store.index();
     })
 });
