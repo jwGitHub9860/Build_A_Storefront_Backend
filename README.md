@@ -362,9 +362,13 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 ## Credits
 ###### References used while making project
 
+Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” Stack Overflow, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+
 Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They Are Declared or in a Random Order?” _Stack Overflow_, stackoverflow.com/#organization, 5 May 2015, stackoverflow.com/questions/30051693/is-jasmine-supposed-to-execute-specs-in-the-order-they-are-declared-or-in-a-rand#:~:text=3%20Answers,4. Accessed 23 Apr. 2026.
 
 “GitHub Profile README Generator.” _GitHub Profile Readme Generator | GitHub Profile Readme Generator_, rahuldkjain.github.io/gh-profile-readme-generator/. Accessed 8 Apr. 2026.
+
+Kumar, Shiv, and VIC3KING. “JWT Gives Jsonwebtokenerror ‘Invalid Token.’” _Stack Overflow_, stackoverflow.com/#organization, 14 Jan. 2022, stackoverflow.com/questions/48606341/jwt-gives-jsonwebtokenerror-invalid-token. Accessed 25 Apr. 2026.
 
 “Make a README.” _GitHub_, GitHub, www.makeareadme.com/. Accessed 8 Apr. 2026.
 
@@ -374,9 +378,9 @@ Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.�
 
 Oscalation, and Erwin Brandstetter. “Only Permit Specific Values in Postgresql Column.” Edited by User330315, _Stack Overflow_, stackoverflow.com/#organization, 1 Jan. 1963, stackoverflow.com/questions/55288282/only-permit-specific-values-in-postgresql-column#:~:text=To%20only%20permit%20specific%20values%20in%20a,*%20Using%20an%20ever%2Dexpanding/dynamic%20set%20of%20values. Accessed 10 Apr. 2026.
 
-seattleguy, and Yousaf. “Reset a Database before Each Test.” Stack Overflow, https://stackoverflow.com/#organization, 7 Oct. 2019, stackoverflow.com/questions/58274004/reset-a-database-before-each-test. Accessed 23 Apr. 2026.
+seattleguy, and Yousaf. “Reset a Database before Each Test.” _Stack Overflow_, stackoverflow.com/#organization, 7 Oct. 2019, stackoverflow.com/questions/58274004/reset-a-database-before-each-test. Accessed 23 Apr. 2026.
 
-Tomar, Mayank. “How to Access Request Parameters in Postman?” GeeksforGeeks, GeeksforGeeks, 9 July 2024, www.geeksforgeeks.org/node-js/how-to-access-request-parameters-in-postman/. Accessed 25 Apr. 2026.
+Tomar, Mayank. “How to Access Request Parameters in Postman?” _GeeksforGeeks_, GeeksforGeeks, 9 July 2024, www.geeksforgeeks.org/node-js/how-to-access-request-parameters-in-postman/. Accessed 25 Apr. 2026.
 
 UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
 
