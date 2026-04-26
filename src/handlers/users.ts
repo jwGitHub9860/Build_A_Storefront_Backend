@@ -8,8 +8,11 @@ const store = new UserStore()
 const index = async (req: Request, res: Response) => {
     // Requires Token to Display All Users
     try {
+        const authorizationHeader = req.headers.authorization
+        const token = authorizationHeader?.split(' ')[1]
+
         // Checks if Token is Valid
-        jwt.verify(req.query.token as string, (process.env.TOKEN_SECRET as string))
+        jwt.verify((token as string), (process.env.TOKEN_SECRET as string))
     } catch (err) {
         res.status(401)
         res.json(`Invalid token ${err}`)
