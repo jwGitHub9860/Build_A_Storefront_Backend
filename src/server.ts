@@ -74,10 +74,7 @@ app.delete('/products/:id', (req: Request, res: Response) => {
 })
 
 // REST Routes for "order" Model
-
-// MUST BE "POST" Request to PREVENT "Invalid token JsonWebTokenError: jwt must be provided"
-// "GET" Requests will NOT ACCEPT Tokens
-app.post('/orders', (req: Request, res: Response) => {
+app.get('/orders', (req: Request, res: Response) => {
     try {
         res.send('this is the INDEX route')
     } catch (err) {
@@ -86,9 +83,7 @@ app.post('/orders', (req: Request, res: Response) => {
     }
 })
 
-// MUST BE "POST" Request to PREVENT "Invalid token JsonWebTokenError: jwt must be provided"
-// "GET" Requests will NOT ACCEPT Tokens
-app.post('/orders/:id', (req: Request, res: Response) => {
+app.get('/orders/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the SHOW route')
     } catch (err) {
@@ -124,10 +119,7 @@ app.delete('/orders/:id', (req: Request, res: Response) => {
 })
 
 // REST Routes for "user" Model
-
-// MUST BE "POST" Request to PREVENT "Invalid token JsonWebTokenError: jwt must be provided"
-// "GET" Requests will NOT ACCEPT Tokens
-app.post('/users', (req: Request, res: Response) => {
+app.get('/users', (req: Request, res: Response) => {
     try {
         res.send('this is the INDEX route')
     } catch (err) {
@@ -136,9 +128,7 @@ app.post('/users', (req: Request, res: Response) => {
     }
 })
 
-// MUST BE "POST" Request to PREVENT "Invalid token JsonWebTokenError: jwt must be provided"
-// "GET" Requests will NOT ACCEPT Tokens
-app.post('/users/:id', (req: Request, res: Response) => {
+app.get('/users/:id', (req: Request, res: Response) => {
     try {
         res.send('this is the SHOW route')
     } catch (err) {
