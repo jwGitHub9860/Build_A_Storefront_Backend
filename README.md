@@ -107,51 +107,58 @@ yarn watch
 yarn watch --ignoreConfig
 ```
 25. Hit ```Ctrl+c``` to exit the ```yarn watch --ignoreConfig``` command
-26. Input the command below into the terminal to run migrations
+26. Input the commands below to run migrations for **dev** and **testing** databases
 ```
 db-migrate up
+db-migrate up -e test
 ```
 27. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
-28. Input the command shown below to fix the **assertion error**
+28. Input the commands shown below to fix the **assertion error**
 ```
+\c shopping
 GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
+\c shopping_test
+GRANT USAGE, CREATE ON SCHEMA public TO shopping_user_test;
 ```
+The following output will confirm that permissions are granted: **GRANT**
 
-29. Reopen **SQL Shell (psql)**
-30. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
+29. _If it is closed_, reopen **Visual Studio Code**
+30. Rerun the commands from _Step 26_ to run migrations for **dev** and **testing** databases
+31. _If it is closed_, reopen **SQL Shell (psql)**
+32. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
 ```
 \dt
 ```
-31. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
+33. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
 ```
 SELECT * FROM users;
 SELECT * FROM orders;
 SELECT * FROM products;
 ```
-32. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
+34. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
 ```
 ALTER TABLE users ADD COLUMN username VARCHAR(64) NOT NULL;
 ALTER TABLE users ADD COLUMN password_digest VARCHAR(64) NOT NULL;
 ```
 The following output will confirm "**username**" column creation: **ALTER TABLE**
 
-33. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
+35. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
 ```
 ALTER TABLE users DROP COLUMN password;
 ```
 The following output will confirm "**password**" column deletion: **ALTER TABLE**
 
-34. Input the command below to ensure that the "**users**" table has the "**username**" column
+36. Input the command below to ensure that the "**users**" table has the "**username**" column
 ```
 SELECT * FROM users;
 ```
-35. Input the command below to input the data into the "**users**" table
+37. Input the command below to input the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
 ```
 The following output will confirm "**users**" new data addition: **INSERT 0 1**
 
-36. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
+38. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
 ```
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
 INSERT INTO users (firstName, lastName, username, password) VALUES ('Dane', 'Jerry', 'userDane', 'password123');
