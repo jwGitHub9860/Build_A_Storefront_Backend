@@ -380,6 +380,8 @@ Oscalation, and Erwin Brandstetter. “Only Permit Specific Values in Postgresql
 
 seattleguy, and Yousaf. “Reset a Database before Each Test.” _Stack Overflow_, stackoverflow.com/#organization, 7 Oct. 2019, stackoverflow.com/questions/58274004/reset-a-database-before-each-test. Accessed 23 Apr. 2026.
 
+“Token Invalid.” _Knowledge_, Udacity, 2021, knowledge.udacity.com/questions/648515. Accessed 22 Apr. 2026.
+
 Tomar, Mayank. “How to Access Request Parameters in Postman?” _GeeksforGeeks_, GeeksforGeeks, 9 July 2024, www.geeksforgeeks.org/node-js/how-to-access-request-parameters-in-postman/. Accessed 25 Apr. 2026.
 
 UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
