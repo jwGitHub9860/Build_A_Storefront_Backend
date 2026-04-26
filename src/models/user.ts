@@ -98,8 +98,6 @@ export class UserStore {
 
         const result = await conn.query(sql, [username])
 
-        console.log(password+(process.env.PASSWORD_PEPPER as string))
-
         // Checks if User Account Exists
         if (result.rows.length) {
             const user = result.rows[0]
