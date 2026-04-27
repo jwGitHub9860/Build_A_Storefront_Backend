@@ -62,7 +62,7 @@ export class OrderStore {
             // Checks if User Account Exists
             if (userIdResult.rows.length) {
                 // Checks if Chosen Product ID Exists in "products" Database
-                const productIdSql = 'SELECT id FROM users WHERE id=($1)'
+                const productIdSql = 'SELECT id FROM products WHERE id=($1)'
                 const productIdResult = await conn.query(productIdSql, [o.productOrderId])
 
                 // Checks if Product Order 
