@@ -384,7 +384,9 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 ## Credits
 ###### References used while making project
 
-Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” Stack Overflow, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” _Stack Overflow_, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+
+Banodha, Himanshu. “Database Schemas.” _GeeksforGeeks_, GeeksforGeeks, 8 Dec. 2025, www.geeksforgeeks.org/dbms/database-schemas/. Accessed 27 Apr. 2026.
 
 Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They Are Declared or in a Random Order?” _Stack Overflow_, stackoverflow.com/#organization, 5 May 2015, stackoverflow.com/questions/30051693/is-jasmine-supposed-to-execute-specs-in-the-order-they-are-declared-or-in-a-rand#:~:text=3%20Answers,4. Accessed 23 Apr. 2026.
 
