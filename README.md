@@ -185,10 +185,10 @@ npm start
 ```
 The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
 
-2. Open **Postman**
-3. _If collection does not exist,_ create new collection to hold requests
-4. _If there are no requests,_ create new request
-5. Input one of the following URL options into the respective requests
+6. Open **Postman**
+7. _If collection does not exist,_ create new collection to hold requests
+8. _If there are no requests,_ create new request
+9. Input one of the following URL options into the respective requests
 
 **<ins>Home Request:</ins>** (**GET** request)
 ```
@@ -253,8 +253,8 @@ http://localhost:3000/users/authenticate
 http://localhost:3000/users/9/orders/2/products
 ```
 
-6. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
-7. Input the following example below provide all of the information required for the request:
+10. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
+11. Input the following example below provide all of the information required for the request:
 ```
 {
     "quantity": 3
@@ -262,7 +262,7 @@ http://localhost:3000/users/9/orders/2/products
 ```
 _The "quantity" value can be a different value._
 
-8. Hit the **"Send"** button to send the request
+12. Hit the **"Send"** button to send the request
 
 
 ## Getting Started
