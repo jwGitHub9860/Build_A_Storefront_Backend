@@ -2,6 +2,8 @@
 
 This project is an API that provide all the functionality needed for an online store. The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
 
+**This branch does not have the "build/dist" folders to make it easier for reviewers to test project.**
+
 ## Creation Date
 
 > 4/8/2026
