@@ -108,12 +108,12 @@ const authenticate = async (req: Request, res: Response) => {
 
 // Shows how "order" Belongs to SINGLE "user"
 const addOrder = async (req: Request, res: Response) => {
-    const userId: string = (req.params.id as string)
-    const orderId: string = req.body.orderId
+    const userID: string = req.params.userID as string
+    const orderID: string = req.params.orderID as string
     const quantity: number = parseInt(req.body.quantity)
 
     try {
-        const addedOrder = await store.addOrder(quantity, orderId, userId)
+        const addedOrder = await store.addOrder(quantity, orderID, userID)
         res.json(addedOrder)
     } catch (err) {
         res.status(400)

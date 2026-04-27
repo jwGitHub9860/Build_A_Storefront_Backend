@@ -120,7 +120,7 @@ export class UserStore {
             const sql = 'SELECT * FROM users WHERE id=($1)'
             const result = await conn.query(sql, [userId])
             const user = result.rows[0]
-            if (user.id !== null) {
+            if (user.id === null) {
                 throw new Error(`Could not add order ${orderId} to user ${userId} because user does not exist ${user.id}`);
             }
             conn.release()
