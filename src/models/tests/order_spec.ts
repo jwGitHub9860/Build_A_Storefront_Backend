@@ -29,20 +29,22 @@ describe("Order Model", () => {
     });
 
     it('create method should add an order', async () => {
-        userStore.create({
+        const user = await userStore.create({
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
         });
 
-        productStore.create({
+        const product = await productStore.create({
             name: "apples",
             price: 5,
             category: "food"
         });
 
         await orderStore.create({
+            productOrderId: product.id,
             quantity: 1,
+            userId: user.id,
             orderStatus: 'active'
         });
     });

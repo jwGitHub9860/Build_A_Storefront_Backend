@@ -48,15 +48,31 @@ export class OrderStore {
         }
     }
 
-    async create(o: Order): Promise<Order> {
+    async create(o: Order): Promise<Order | null> {
         try {
             // @ts-ignore
             const conn = await client.connect()
             const sql = 'INSERT INTO orders (productOrderId, quantity, userId, orderStatus) VALUES ($1, $2, $3, $4) RETURNING *'
             const result = await conn.query(sql, [o.productOrderId, o.quantity, o.userId, o.orderStatus])
-            const order = result.rows[0]
-            conn.release()
-            return order
+
+            // Checks if Chosen User ID Exists in "users" Database
+            const userIdSql = 'SELECT id FROM users WHERE id=($1)'
+            const userIdResult = await conn.query(userIdSql, [o.userId])
+
+            // Checks if User Account Exists
+            if (userIdResult.rows.length) {
+                // Checks if Chosen Product ID Exists in "products" Database
+                const productIdSql = 'SELECT id FROM users WHERE id=($1)'
+                const productIdResult = await conn.query(productIdSql, [o.productOrderId])
+
+                // Checks if Product Order 
+                if (productIdResult.rows.length) {
+                    const order = result.rows[0]
+                    conn.release()
+                    return order
+                }
+            }
+            return null
         } catch (err) {
             throw new Error(`Could not add new order ${o.productOrderId}. Error: ${err}`);
         }

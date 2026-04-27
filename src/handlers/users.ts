@@ -88,9 +88,10 @@ const authenticate = async (req: Request, res: Response) => {
     const user: User = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        username: req.body.username,
-        password: req.body.password,
+        username: req.query.username as string,
+        password: req.query.password as string,
     }
+
     try {
         // ! - Defines "user.password" AS undefined
         const u = await store.authenticate(user.username, user.password!)

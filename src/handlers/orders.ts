@@ -38,7 +38,9 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const order: Order = {
+        productOrderId: Number(req.query.productOrderId),
         quantity: Number(req.query.quantity),
+        userId: Number(req.query.userId),
         orderStatus: req.query.orderStatus as string,
     }
 
@@ -61,7 +63,7 @@ const create = async (req: Request, res: Response) => {
         res.json(newOrder)
     } catch (err) {
         res.status(400)
-        res.json(err)
+        res.json(`Could not create new order. ${err}`)
     }
 }
 
