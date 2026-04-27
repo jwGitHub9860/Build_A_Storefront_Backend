@@ -196,55 +196,57 @@ http://localhost:3000/products
 ```
 **<ins>Product Show Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products/2
+http://localhost:3000/products/3
 ```
-"**1**" _should not be used as ID value since it is used for tests in Visual Studio Code._
-
 **<ins>Product Create Route:</ins>** (**POST** request)
 ```
-http://localhost:3000/products
+http://localhost:3000/products?name=pears&price=10&category=food
 ```
 **<ins>Product Delete Route:</ins>** (**DELETE** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/products/3
 ```
 
 **<ins>Order Index Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products
+http://localhost:3000/orders
 ```
 **<ins>Order Show Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/orders/2
 ```
 **<ins>Order Create Route:</ins>** (**POST** request)
 ```
-http://localhost:3000/products
+http://localhost:3000/orders?productOrderId=3&quantity=1&userId=14&orderStatus=active
 ```
 **<ins>Order Delete Route:</ins>** (**DELETE** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/orders/5
 ```
 
 **<ins>User Index Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products
+http://localhost:3000/users
 ```
 **<ins>User Show Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/users/5
 ```
 **<ins>User Create Route:</ins>** (**POST** request)
 ```
-http://localhost:3000/products
+http://localhost:3000/users?firstName=John&lastName=Doe&username=userJohn
 ```
 **<ins>User Delete Route:</ins>** (**DELETE** request)
 ```
-http://localhost:3000/products/1
+http://localhost:3000/users/3
+```
+**<ins>User Authentication Route:</ins>** (**POST** request)
+```
+http://localhost:3000/users/authenticate
 ```
 **<ins>Current Order by User Route:</ins>** (**GET** request)
 ```
-http://localhost:3000/users/:userID/orders/:orderID/products
+http://localhost:3000/users/9/orders/2/products
 ```
 
 6. Hit the **"Send"** button to send the request
