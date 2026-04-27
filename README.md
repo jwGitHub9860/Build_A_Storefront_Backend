@@ -249,7 +249,16 @@ http://localhost:3000/users/authenticate
 http://localhost:3000/users/9/orders/2/products
 ```
 
-6. Hit the **"Send"** button to send the request
+6. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
+7. Input the following example below provide all of the information required for the request:
+```
+{
+    "quantity": 3
+}
+```
+_The "quantity" value can be a different value._
+
+8. Hit the **"Send"** button to send the request
 
 
 ## Getting Started
