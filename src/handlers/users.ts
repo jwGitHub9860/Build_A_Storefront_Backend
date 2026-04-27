@@ -80,7 +80,7 @@ const create = async (req: Request, res: Response) => {
 // TEMP: should I include "update" Method?
 
 const destroy = async (req: Request, res: Response) => {
-    const deleted = await store.delete(req.body.id)
+    const deleted = await store.delete(req.params.id)
     res.json(deleted)
 }
 

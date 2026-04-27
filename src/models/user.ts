@@ -76,11 +76,16 @@ export class UserStore {
 
     // TEMP: should I include "update" Method?
 
-    async delete(id: string): Promise<User> {
+    async delete(id: string): Promise<User | null> {
         try {
             // @ts-ignore
             const conn = await client.connect()
-            const sql = 'DELETE FROM users WHERE id=($1)'
+
+            // Delete DEPENDENT "orders" FIRST
+            await conn.query('DELETE FROM orders WHERE userId=($1) RETURNING *', [id])
+
+            // Delete "user"
+            const sql = 'DELETE FROM users WHERE id=($1) RETURNING *'
             const result = await conn.query(sql, [id])
             const user = result.rows[0]
             conn.release()
