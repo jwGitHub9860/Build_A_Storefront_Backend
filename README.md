@@ -1,6 +1,10 @@
 # Storefront Backend Project
 
-This project is an API that provide all the functionality needed for an online store. The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
+## Goal
+The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase.
+
+## Description
+This project is an API that provide all the functionality needed for an online store. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
 
 ## Creation Date
 
