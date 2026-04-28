@@ -1,5 +1,10 @@
 # Storefront Backend Project
 
+## GitHub repository link
+```
+https://github.com/jwGitHub9860/Build_A_Storefront_Backend.git
+```
+
 ## Goal
 The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase.
 
