@@ -31,24 +31,41 @@ describe("Product Model", () => {
     });
 
     it('create method should add a product', async () => {
-        await store.create({
+        const result = await store.create({
             name: "apples",
             price: 5,
             category: "food"
         });
+
+        // Tests if "create" Method Created Product
+        expect(result).toBeDefined();
+        expect(result.name).toEqual("apples");
     });
 
     // Checks for Specific Array Result from Running Index Method
     it('index method should return a list of products', async () => {
-        await store.index();
+        const result = await store.index();
+
+        // Tests if "index" Method Displayed All Products
+        expect(result.length).toBeGreaterThan(0);
+        expect(result[0].name).toEqual("apples");
     });
 
     it('show method should return the correct product', async () => {
-        await store.show("1");
+        const result = await store.show("1");
+
+        // Tests if "show" Method Showed Chosen Product
+        expect(result).toBeDefined();
+        expect(result.name).toEqual("apples");
     });
 
     it('delete method should remove the product', async () => {
-        await store.delete("1");
-        await store.index();
+        const result = await store.delete("1");
+
+        // Tests if "delete" Method Deleted Chosen Product
+        expect(result).toBeDefined();
+
+        const products = await store.index();
+        expect(products.length).toEqual(0);
     })
 });

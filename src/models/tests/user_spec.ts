@@ -31,24 +31,41 @@ describe("User Model", () => {
     });
 
     it('create method should add a user', async () => {
-        await store.create({
+        const result = await store.create({
             firstName: "John",
             lastName: "Doe",
             username: "userJohn",
         });
+
+        // Tests if "create" Method Created User
+        expect(result).toBeDefined();
+        expect(result.username).toEqual("userJohn");
     });
 
     // Checks for Specific Array Result from Running Index Method
     it('index method should return a list of users', async () => {
-        await store.index();
+        const result = await store.index();
+
+        // Tests if "index" Method Displayed All Users
+        expect(result.length).toBeGreaterThan(0);
+        expect(result[0].username).toEqual("userJohn");
     });
 
     it('show method should return the correct user', async () => {
-        await store.show("1");
+        const result = await store.show("1");
+
+        // Tests if "show" Method Showed Chosen User
+        expect(result).toBeDefined();
+        expect(result.username).toEqual("userJohn");
     });
     
     it('delete method should remove the user', async () => {
-        await store.delete("1");
-        await store.index();
-    })
+        const result = await store.delete("1");
+
+        // Tests if "delete" Method Deleted Chosen User
+        expect(result).toBeDefined();
+
+        const users = await store.index();
+        expect(users.length).toEqual(0);
+    });
 });
