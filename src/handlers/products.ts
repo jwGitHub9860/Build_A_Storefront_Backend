@@ -48,8 +48,6 @@ const create = async (req: Request, res: Response) => {
     }
 }
 
-// TEMP: should I include "update" Method?
-
 const destroy = async (req: Request, res: Response) => {
     // Protects "products" Delete Route by Requiring JWT Validation
     try {
