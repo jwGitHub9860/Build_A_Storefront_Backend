@@ -50,8 +50,6 @@ describe("Order Model", () => {
         expect(orderStore.create).toBeDefined();
     });
 
-    // TEMP: should I include "update" Method?
-
     it('should have a delete method', () => {
         expect(orderStore.delete).toBeDefined();
     });

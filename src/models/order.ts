@@ -77,8 +77,6 @@ export class OrderStore {
         }
     }
 
-    // TEMP: should I include "update" Method?
-
     async delete(id: string): Promise<Order | null> {
         try {
             // @ts-ignore

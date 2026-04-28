@@ -73,8 +73,6 @@ export class UserStore {
         }
     }
 
-    // TEMP: should I include "update" Method?
-
     async delete(id: string): Promise<User | null> {
         try {
             // @ts-ignore

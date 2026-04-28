@@ -40,8 +40,6 @@ describe("Product Model", () => {
         expect(store.create).toBeDefined();
     });
 
-    // TEMP: should I include "update" Method?
-
     it('should have a delete method', () => {
         expect(store.delete).toBeDefined();
     });
