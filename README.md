@@ -1,6 +1,10 @@
 # Storefront Backend Project
 
-This project is an API that provide all the functionality needed for an online store. The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
+## Goal
+The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase.
+
+## Description
+This project is an API that provide all the functionality needed for an online store. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
 
 ## Creation Date
 
@@ -181,10 +185,10 @@ npm start
 ```
 The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
 
-2. Open **Postman**
-3. _If collection does not exist,_ create new collection to hold requests
-4. _If there are no requests,_ create new request
-5. Input one of the following URL options into the respective requests
+6. Open **Postman**
+7. _If collection does not exist,_ create new collection to hold requests
+8. _If there are no requests,_ create new request
+9. Input one of the following URL options into the respective requests
 
 **<ins>Home Request:</ins>** (**GET** request)
 ```
@@ -249,8 +253,8 @@ http://localhost:3000/users/authenticate
 http://localhost:3000/users/9/orders/2/products
 ```
 
-6. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
-7. Input the following example below provide all of the information required for the request:
+10. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
+11. Input the following example below provide all of the information required for the request:
 ```
 {
     "quantity": 3
@@ -258,7 +262,7 @@ http://localhost:3000/users/9/orders/2/products
 ```
 _The "quantity" value can be a different value._
 
-8. Hit the **"Send"** button to send the request
+12. Hit the **"Send"** button to send the request
 
 
 ## Getting Started
@@ -380,7 +384,9 @@ This was the solution given by **Ananta** in _Knowledge, Udacity_.
 ## Credits
 ###### References used while making project
 
-Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” Stack Overflow, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” _Stack Overflow_, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+
+Banodha, Himanshu. “Database Schemas.” _GeeksforGeeks_, GeeksforGeeks, 8 Dec. 2025, www.geeksforgeeks.org/dbms/database-schemas/. Accessed 27 Apr. 2026.
 
 Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They Are Declared or in a Random Order?” _Stack Overflow_, stackoverflow.com/#organization, 5 May 2015, stackoverflow.com/questions/30051693/is-jasmine-supposed-to-execute-specs-in-the-order-they-are-declared-or-in-a-rand#:~:text=3%20Answers,4. Accessed 23 Apr. 2026.
 
