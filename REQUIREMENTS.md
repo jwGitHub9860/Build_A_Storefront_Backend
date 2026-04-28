@@ -8,35 +8,45 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index 
 - Show
 - Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+- Destroy
 
 #### Users
 - Index [token required]
 - Show [token required]
-- Create N[token required]
+- Create [token required]
+- Destroy
+- Authenticate
+- Current Order by user (args: user id)[token required]
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Index
+- Show
+- Create
+- Destroy
 
-## Data Shapes
-#### Product
+## Data Shapes of Database Schemas
+#### Product Schema
 -  id
 - name
 - price
-- [OPTIONAL] category
+- category (food, vehicles, clothing, furniture)
 
-#### User
+#### User Schema
 - id
 - firstName
 - lastName
-- password
+- username
+- password_digest
 
-#### Orders
+#### Orders Schema
 - id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
+- productOrderId - _id of each product in the order_
+- quantity - quantity of each product in the order
+- userId
 - status of order (active or complete)
 
+#### User Orders Schema
+- id
+- quantity
+- orderId
+- userId
