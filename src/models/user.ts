@@ -1,6 +1,5 @@
 // @ts-ignore
 import client from "../database";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 // Builds TypeScript "User"

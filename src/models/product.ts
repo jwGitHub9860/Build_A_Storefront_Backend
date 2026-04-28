@@ -1,6 +1,5 @@
 // @ts-ignore
 import client from "../database";
-import jwt from "jsonwebtoken";
 
 // Builds TypeScript "Product"
 export type Product = {

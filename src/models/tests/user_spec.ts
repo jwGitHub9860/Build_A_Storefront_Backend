@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import supertest from 'supertest';
-import { User, UserStore } from "../user";
+import { UserStore } from "../user";
 import usersRoutes from "../../handlers/users";
 
 const app: express.Application = express()

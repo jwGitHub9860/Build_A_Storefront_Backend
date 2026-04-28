@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import jwt from "jsonwebtoken";
 import supertest from 'supertest';
-import { Product, ProductStore } from "../product";
+import { ProductStore } from "../product";
 import productsRoutes from "../../handlers/products";
 
 const app: express.Application = express()
