@@ -1,6 +1,5 @@
 // @ts-ignore
 import client from "../database";
-import jwt from "jsonwebtoken";
 
 // Builds TypeScript "Order"
 export type Order = {
@@ -77,8 +76,6 @@ export class OrderStore {
             throw new Error(`Could not add new order ${o.productOrderId}. Error: ${err}`);
         }
     }
-
-    // TEMP: should I include "update" Method?
 
     async delete(id: string): Promise<Order | null> {
         try {

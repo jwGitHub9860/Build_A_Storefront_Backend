@@ -1,6 +1,5 @@
 // @ts-ignore
 import client from "../database";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 // Builds TypeScript "User"
@@ -73,8 +72,6 @@ export class UserStore {
             throw new Error(`Could not add new user ${u.username}. Error: ${err}`);
         }
     }
-
-    // TEMP: should I include "update" Method?
 
     async delete(id: string): Promise<User | null> {
         try {
