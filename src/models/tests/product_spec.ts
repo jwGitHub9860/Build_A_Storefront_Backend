@@ -5,6 +5,12 @@ const store = new ProductStore()
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
 describe("Product Model", () => {
+    // Clears "products" Database BEFORE Tests to Prevent Errors
+    beforeAll(async () => {
+        expect(store.resetDatabase).toBeDefined();
+        await store.resetDatabase();
+    });
+
     // Checks that Method Exists
     it('should have an index method', () => {
         expect(store.index).toBeDefined();
