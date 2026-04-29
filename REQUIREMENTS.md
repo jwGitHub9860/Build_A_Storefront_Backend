@@ -24,29 +24,69 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Create
 - Destroy
 
-## Data Shapes of Database Schemas
-#### Product Schema
+## Data Shapes
+#### Product
 -  id
 - name
 - price
 - category (food, vehicles, clothing, furniture)
 
-#### User Schema
+#### User
 - id
 - firstName
 - lastName
 - username
 - password_digest
 
-#### Orders Schema
+#### Orders
 - id
 - productOrderId - _id of each product in the order_
 - quantity - quantity of each product in the order
 - userId
 - status of order (active or complete)
 
-#### User Orders Schema
+#### User Orders
 - id
 - quantity
 - orderId
 - userId
+
+## Database Schemas
+
+#### Product Schema
+
+|  Column  |                                                                 Type                                                                      |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| id       | SERIAL PRIMARY KEY _(or integer)_                                                                                                         |
+| name     | VARCHAR(64) NOT NULL _(or string)_                                                                                                        |
+| price    | integer                                                                                                                                   |
+| category | VARCHAR(64) NOT NULL CHECK (category IN ('food', 'vehicles', 'clothing', 'furniture')) _(or "food", "vehicles", "clothing", "furniture")_ |
+
+#### User Schema
+
+|     Column      |         Type         |
+| :-------------- | :------------------- |
+| id              | SERIAL PRIMARY KEY   |
+| firstName       | VARCHAR(64) NOT NULL |
+| lastName        | VARCHAR(64) NOT NULL |
+| username        | VARCHAR(64) NOT NULL |
+| password_digest | VARCHAR              |
+
+#### Orders Schema
+
+|     Column    |                                Type                                |
+| :------------ | :----------------------------------------------------------------- |
+|id             | SERIAL PRIMARY KEY                                                 |
+|productOrderId | bigint REFERENCES products(id)                                     |
+|quantity       | integer NOT NULL                                                   |
+|userId         | bigint REFERENCES users(id)                                        |
+|orderStatus    | VARCHAR(64) NOT NULL CHECK (orderStatus IN ('active', 'complete')) |
+
+#### User Orders Schema
+
+|  Column  |             Type             |
+| :--- | :--- |
+| id       | SERIAL PRIMARY KEY           |
+| quantity | integer                      |
+| orderId  | bigint REFERENCES orders(id) |
+| userId   | bigint REFERENCES users(id)  |
