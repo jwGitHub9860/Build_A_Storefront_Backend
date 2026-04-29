@@ -188,73 +188,248 @@ The following output should display that the project is running on ```port 3000`
 6. Open **Postman**
 7. _If collection does not exist,_ create new collection to hold requests
 8. _If there are no requests,_ create new request
-9. Input one of the following URL options into the respective requests
+9. Input one of the following URL options into the respective requests to get the respective results in Postman
 
 **<ins>Home Request:</ins>** (**GET** request)
 ```
 http://localhost:3000/
 ```
+#### Result:
+```
+Hello World!
+```
+
 **<ins>Product Index Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/products
 ```
+#### Result:
+```
+[
+    {
+        "id": 2,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 3,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 4,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 5,
+        "name": "pears",
+        "price": 10,
+        "category": "food"
+    }
+]
+```
+
 **<ins>Product Show Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/products/3
 ```
+#### Result:
+```
+{
+    "id": 3,
+    "name": "apples",
+    "price": 5,
+    "category": "food"
+}
+```
+
 **<ins>Product Create Route:</ins>** (**POST** request)
 ```
 http://localhost:3000/products?name=pears&price=10&category=food
 ```
+#### Result:
+```
+{
+    "id": 5,
+    "name": "pears",
+    "price": 10,
+    "category": "food"
+}
+```
+
 **<ins>Product Delete Route:</ins>** (**DELETE** request)
 ```
 http://localhost:3000/products/3
+```
+#### Result:
+```
+{
+    "id": 3,
+    "name": "apples",
+    "price": 5,
+    "category": "food"
+}
 ```
 
 **<ins>Order Index Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/orders
 ```
+#### Result:
+```
+[
+    {
+        "id": 2,
+        "productorderid": "2",
+        "quantity": 2,
+        "userid": "2",
+        "orderstatus": "active"
+    },
+    {
+        "id": 4,
+        "productorderid": "2",
+        "quantity": 2,
+        "userid": "2",
+        "orderstatus": "active"
+    }
+]
+```
+
 **<ins>Order Show Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/orders/2
 ```
+#### Result:
+```
+{
+    "id": 2,
+    "productorderid": "2",
+    "quantity": 2,
+    "userid": "2",
+    "orderstatus": "active"
+}
+```
+
 **<ins>Order Create Route:</ins>** (**POST** request)
 ```
-http://localhost:3000/orders?productOrderId=3&quantity=1&userId=14&orderStatus=active
+http://localhost:3000/orders?productOrderId=2&quantity=2&userId=2&orderStatus=active
 ```
+#### Result:
+```
+{
+    "id": 4,
+    "productorderid": "2",
+    "quantity": 2,
+    "userid": "2",
+    "orderstatus": "active"
+}
+```
+
 **<ins>Order Delete Route:</ins>** (**DELETE** request)
 ```
-http://localhost:3000/orders/5
+http://localhost:3000/orders/4
+```
+#### Result:
+```
+{
+    "id": 4,
+    "productorderid": "2",
+    "quantity": 2,
+    "userid": "2",
+    "orderstatus": "active"
+}
 ```
 
 **<ins>User Index Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/users
 ```
+#### Result:
+```
+[
+    {
+        "id": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "username": "userJohn",
+        "password_digest": "$2b$10$51LHM0K/8bmEZMGgjgF9ueRSJ3anoc8s/8405Zjx73GSsozzj6T6K"
+    },
+    {
+        "id": 2,
+        "firstname": "Jane",
+        "lastname": "Doe",
+        "username": "userJane",
+        "password_digest": "$2b$10$727FkZbqq1lBGY0nO5By5OXK2hz97myWexYE27qezOIVdMvgeKtMm"
+    }
+]
+```
+
 **<ins>User Show Route:</ins>** (**GET** request)
 ```
 http://localhost:3000/users/5
+```
+#### Result:
+```
+{
+    "id": 5,
+    "firstname": "John",
+    "lastname": "Doe",
+    "username": "userJohn",
+    "password_digest": "$2b$10$6ne/gY1Z9fHIn4w1qxVbnOD4jjl7Fi8U0Ut9sTuvfoOfCRV4n8YpS"
+}
 ```
 **<ins>User Create Route:</ins>** (**POST** request)
 ```
 http://localhost:3000/users?firstName=John&lastName=Doe&username=userJohn
 ```
+#### Result:
+```
+{
+    "newUser": {
+        "id": 8,
+        "firstname": "John",
+        "lastname": "Doe",
+        "username": "userJohn",
+        "password_digest": "$2b$10$hKj621SN8Lq25ldlSJTJdum0iS6E4RXd.S3mWmnh3x5X1a8F.Tj5O"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJKb2huIiwibGFzdG5hbWUiOiJEb2UiLCJ1c2VybmFtZSI6InVzZXJKb2huIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDEwJGhLajYyMVNOOExxMjVsZGxTSlRKZHVtMGlTNkU0UlhkLlMzbVdtbmgzeDVYMWE4Ri5UajVPIn0sImlhdCI6MTc3NzQ5NjMxN30.5VTSi_NvKhHBtovb_gBqzCU8v5U2V7x7kh85OTAFFqY"
+}
+```
+
 **<ins>User Delete Route:</ins>** (**DELETE** request)
 ```
 http://localhost:3000/users/3
 ```
-**<ins>User Authentication Route:</ins>** (**POST** request)
+#### Result:
 ```
-http://localhost:3000/users/authenticate
-```
-**<ins>Current Order by User Route:</ins>** (**GET** request)
-```
-http://localhost:3000/users/9/orders/2/products
+{
+    "id": 3,
+    "firstname": "James",
+    "lastname": "Dille",
+    "username": "userJames",
+    "password_digest": "$2b$10$mvsL4YP9PQjDgbWUfzWsyemyycB7YR5hD5W/MoG3951jlvImzP9My"
+}
 ```
 
-10. _If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
-11. Input the following example below provide all of the information required for the request:
+**<ins>User Authentication Route:</ins>** (**POST** request)
+```
+http://localhost:3000/users/authenticate?username=userJane&password=$2b$10$727FkZbqq1lBGY0nO5By5OXK2hz97myWexYE27qezOIVdMvgeKtMm
+```
+#### Result:
+```
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpudWxsLCJpYXQiOjE3Nzc0OTcwMTV9.yDBcYtRvVPliHUr-ssZxoGjTc90om1btbpfugdef04Y"
+```
+
+**<ins>Current Order by User Route:</ins>** (**GET** request)
+```
+http://localhost:3000/users/2/orders/2/products
+```
+_If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
+Input the following example below provide all of the information required for the request:
 ```
 {
     "quantity": 3
@@ -262,7 +437,17 @@ http://localhost:3000/users/9/orders/2/products
 ```
 _The "quantity" value can be a different value._
 
-12. Hit the **"Send"** button to send the request
+#### Result:
+```
+{
+    "id": 3,
+    "quantity": 3,
+    "orderid": "2",
+    "userid": "2"
+}
+```
+
+10. Hit the **"Send"** button to send the request. _Examples from Step 9 can be **different** from viewer's result._
 
 
 ## Getting Started
