@@ -392,6 +392,8 @@ Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They
 
 “GitHub Profile README Generator.” _GitHub Profile Readme Generator | GitHub Profile Readme Generator_, rahuldkjain.github.io/gh-profile-readme-generator/. Accessed 8 Apr. 2026.
 
+Hesam, et al. “How to Display Table in README.Md File in Github?” Edited by Yivi and Cœur, _Stack Overflow_, https://stackoverflow.com/#organization, 3 Dec. 2021, stackoverflow.com/questions/39378020/how-to-display-table-in-readme-md-file-in-github. Accessed 29 Apr. 2026.
+
 Kumar, Shiv, and VIC3KING. “JWT Gives Jsonwebtokenerror ‘Invalid Token.’” _Stack Overflow_, stackoverflow.com/#organization, 14 Jan. 2022, stackoverflow.com/questions/48606341/jwt-gives-jsonwebtokenerror-invalid-token. Accessed 25 Apr. 2026.
 
 “Make a README.” _GitHub_, GitHub, www.makeareadme.com/. Accessed 8 Apr. 2026.
@@ -400,9 +402,13 @@ Kumar, Shiv, and VIC3KING. “JWT Gives Jsonwebtokenerror ‘Invalid Token.’�
 
 Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” _freeCodeCamp.Org_, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
 
+“Organizing Information with Tables.” _GitHub Docs_, docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables. Accessed 29 Apr. 2026.
+
 Oscalation, and Erwin Brandstetter. “Only Permit Specific Values in Postgresql Column.” Edited by User330315, _Stack Overflow_, stackoverflow.com/#organization, 1 Jan. 1963, stackoverflow.com/questions/55288282/only-permit-specific-values-in-postgresql-column#:~:text=To%20only%20permit%20specific%20values%20in%20a,*%20Using%20an%20ever%2Dexpanding/dynamic%20set%20of%20values. Accessed 10 Apr. 2026.
 
 seattleguy, and Yousaf. “Reset a Database before Each Test.” _Stack Overflow_, stackoverflow.com/#organization, 7 Oct. 2019, stackoverflow.com/questions/58274004/reset-a-database-before-each-test. Accessed 23 Apr. 2026.
+
+Tanmaya. “Markdown Tables.” _GeeksforGeeks_, GeeksforGeeks, 21 Mar. 2025, www.geeksforgeeks.org/html/markdown-tables/. Accessed 29 Apr. 2026.
 
 “Token Invalid.” _Knowledge_, Udacity, 2021, knowledge.udacity.com/questions/648515. Accessed 22 Apr. 2026.
 
