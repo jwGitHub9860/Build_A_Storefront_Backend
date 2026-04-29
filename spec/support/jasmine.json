@@ -2,8 +2,11 @@
   "spec_dir": "spec",
   "spec_files": [
     "../**/tests/user_spec.ts",
+    "../**/tests/user_handler_spec.ts",
     "../**/tests/product_spec.ts",
-    "../**/tests/order_spec.ts"
+    "../**/tests/product_handler_spec.ts",
+    "../**/tests/order_spec.ts",
+    "../**/tests/order_handler_spec.ts"
   ],
   "helpers": [
     "helpers/**/*.js"
