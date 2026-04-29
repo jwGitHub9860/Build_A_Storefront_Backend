@@ -90,3 +90,21 @@ These are the notes from a meeting with the frontend developer that describe wha
 | quantity | integer                      |
 | orderId  | bigint REFERENCES orders(id) |
 | userId   | bigint REFERENCES users(id)  |
+
+## View Schemas in _psql_
+
+1. Open Terminal
+2. Input the command below into the terminal to switch to the postgres user
+```
+su postgres
+```
+3. Input the command below into the terminal to start psql
+```
+psql postgres
+```
+4. _If Steps 1-3 fail_, open **SQL Shell (psql)**
+5. Input the following <ins>psql connection parameters</ins> to enable use of _SQL Shell (psql)_: **Server**, **Database**, **Username**, **Password**
+6. Input the command shown below to view the database schema relations
+```
+\d
+```
