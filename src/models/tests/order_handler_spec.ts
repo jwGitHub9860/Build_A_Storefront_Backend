@@ -26,15 +26,22 @@ const userStore = new UserStore()
 // Allows All Tests Access to "token"
 let token: string
 let productId: any
+let orderId: number
 let userId: any
 
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
 describe("Order Handler", () => {
-    // Clears "orders" Database BEFORE Tests to Prevent Errors
+    // Clears "products", "orders", and "users" Databases BEFORE Tests to Prevent Errors
     beforeAll(async () => {
         expect(orderStore.resetDatabase).toBeDefined();
         await orderStore.resetDatabase();
+
+        expect(userStore.resetDatabase).toBeDefined();
+        await userStore.resetDatabase();
+
+        expect(productStore.resetDatabase).toBeDefined();
+        await productStore.resetDatabase();
 
         // MUST CREATE NEW USER to Obtain "token" & "userId" to PREVENT Test Failure
         const userResponse = await request.post("/users").query({
@@ -43,8 +50,11 @@ describe("Order Handler", () => {
             username: "userJohn",
         });
 
+        // DEFINES "userId" for "order" Tests to PREVENT Test Failures
+        userId = userResponse.body.newUser.id;
+
         // Creates "token" for "order" Tests to PREVENT Test Failures
-        token = jwt.sign({ user: { id: userResponse.body.newUser.id } }, process.env.TOKEN_SECRET as string);
+        token = jwt.sign( { user: { id: userId } }, process.env.TOKEN_SECRET as string);
 
         // MUST CREATE NEW PRODUCT to Obtain "productId" to PREVENT Test Failure
         const productResponse = await request
@@ -56,9 +66,8 @@ describe("Order Handler", () => {
                 category: "food"
             });
 
-        // Creates "productId" & "userId" for "order" Tests to PREVENT Test Failures
+        // Creates "productId" for "order" Tests to PREVENT Test Failures
         productId = productResponse.body.id;
-        userId = userResponse.body.newUser.id;
     });
 
     it('POST Request that runs create method should create a order', async () => {
@@ -66,15 +75,16 @@ describe("Order Handler", () => {
             .post("/orders")
             .set("Authorization", `Bearer ${token}`)
             .query({
-                productOrderId: productId,
-                quantity: 1,
                 userId: userId,
                 orderStatus: 'active'
             });
 
+        // DEFINES "orderId" for "order" Tests to PREVENT Test Failures
+        orderId = response.body.id;
+
         // Tests if "create" Handler Method Created Order
         expect(response.status).toBe(200);
-        expect(response.body.quantity).toEqual(1);
+        expect(response.body.orderStatus).toEqual("active");
     });
 
     // Checks for Specific Array Result from Running Index Method
@@ -88,17 +98,17 @@ describe("Order Handler", () => {
 
     it('GET Request that runs show method should return and display the chosen order', async () => {
         const response = await request
-            .get("/orders/1")
+            .get(`/orders/${orderId}`)
             .set("Authorization", `Bearer ${token}`);
 
         // Tests if "show" Handler Method Showed Chosen Order
         expect(response.status).toBe(200);
-        expect(response.body.quantity).toEqual(1);
+        expect(response.body.id).toEqual(orderId);
     });
 
     it('DELETE Request that runs delete method should remove the chosen order', async () => {
         const response = await request
-            .delete("/orders/1")
+            .delete(`/orders/${orderId}`)
             .set("Authorization", `Bearer ${token}`);
 
         // Tests if "delete" Handler Method Deleted Chosen Order
