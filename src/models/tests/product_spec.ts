@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import supertest from 'supertest';
 import { ProductStore } from "../product";
 import productsRoutes from "../../handlers/products";
 

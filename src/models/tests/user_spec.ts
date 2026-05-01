@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import supertest from 'supertest';
 import { UserStore } from "../user";
 import usersRoutes from "../../handlers/users";
 
