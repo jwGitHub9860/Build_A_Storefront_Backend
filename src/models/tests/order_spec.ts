@@ -20,13 +20,22 @@ const orderStore = new OrderStore()
 const productStore = new ProductStore()
 const userStore = new UserStore()
 
+// Allows All Tests Access to "token", "productId", "orderId", and "userId"
+let orderId: any
+
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
 describe("Order Model", () => {
-    // Clears "orders" Database BEFORE Tests to Prevent Errors
+    // Clears "products", "orders", and "users" Databases BEFORE Tests to Prevent Errors
     beforeAll(async () => {
         expect(orderStore.resetDatabase).toBeDefined();
         await orderStore.resetDatabase();
+
+        expect(userStore.resetDatabase).toBeDefined();
+        await userStore.resetDatabase();
+
+        expect(productStore.resetDatabase).toBeDefined();
+        await productStore.resetDatabase();
     })
 
     // Checks that Method Exists
@@ -53,22 +62,21 @@ describe("Order Model", () => {
             username: "userJohn",
         });
 
-        const product = await productStore.create({
-            name: "apples",
-            price: 5,
-            category: "food"
-        });
+        // Checks if New User has ID
+        expect(user).toBeDefined();
+        expect(user.id).toBeDefined();
 
         const result = await orderStore.create({
-            productOrderId: product.id,
-            quantity: 1,
             userId: user.id,
             orderStatus: 'active'
         });
 
         // Tests if "create" Method Created Order
-        expect(result).toBeDefined();
-        expect(result?.quantity).toEqual(1);
+        expect(result?.id).toBeDefined();
+        expect(result?.orderStatus).toEqual("active");
+
+        // DEFINES "orderId" for "order" Tests to PREVENT Test Failures
+        orderId = result?.id;
     });
 
     // Checks for Specific Array Result from Running Index Method
@@ -77,19 +85,19 @@ describe("Order Model", () => {
 
         // Tests if "index" Method Displayed All Orders
         expect(result.length).toBeGreaterThan(0);
-        expect(result[0].quantity).toEqual(1);
+        expect(result[0].orderStatus).toEqual('active');
     });
 
     it('show method should return the correct order', async () => {
-        const result = await orderStore.show("1");
+        const result = await orderStore.show(orderId.toString());
 
         // Tests if "show" Method Showed Chosen Order
         expect(result).toBeDefined();
-        expect(result.quantity).toEqual(1);
+        expect(result.orderStatus).toEqual('active');
     });
 
     it('delete method should remove the order', async () => {
-        const result = await orderStore.delete("1");
+        const result = await orderStore.delete(orderId.toString());
 
         // Tests if "delete" Method Deleted Chosen Order
         expect(result).toBeDefined();

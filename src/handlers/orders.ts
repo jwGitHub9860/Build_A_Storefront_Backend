@@ -38,8 +38,6 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     const order: Order = {
-        productOrderId: Number(req.query.productOrderId),
-        quantity: Number(req.query.quantity),
         userId: Number(req.query.userId),
         orderStatus: req.query.orderStatus as string,
     }
@@ -87,11 +85,30 @@ const destroy = async (req: Request, res: Response) => {
     }
 }
 
+// Attaches "product" to ONE "order"
+const addProduct = async (req: Request, res: Response) => {
+    const orderId: string = req.params.id;
+    const productId: string = req.body.productId;
+    const quantity: number = parseInt(req.body.quantity);
+
+    try {
+        const addedProduct = await store.addProduct(orderId, productId, quantity);
+        res.json(addedProduct)
+    } catch (err) {
+        console.error(`REAL ERROR: ${err}`)
+        res.status(400)
+        res.json(err)
+    }
+}
+
 const ordersRoutes = (app: express.Application) => {
     app.get('/orders', index)
     app.get('/orders/:id', show)
     app.post('/orders', create)
     app.delete('/orders/:id', destroy)
+
+    // Attaches "product" to ONE "order"
+    app.post('/orders/:id/products', addProduct)
 }
 
 export default ordersRoutes
