@@ -21,10 +21,7 @@ const productStore = new ProductStore()
 const userStore = new UserStore()
 
 // Allows All Tests Access to "token", "productId", "orderId", and "userId"
-let token: string
-let productId: any
 let orderId: any
-let userId: any
 
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)
