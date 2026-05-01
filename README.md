@@ -12,7 +12,7 @@ This project is an API that provide all the functionality needed for an online s
 
 ## Project Status
 
-> Active
+> Complete
 
 ## How to Install and Run the Project
 1. Open **Terminal**
