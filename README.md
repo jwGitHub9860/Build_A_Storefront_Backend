@@ -1,5 +1,478 @@
 # Storefront Backend Project
 
+## Goal
+The project aims to provide a real-world scenario in which the developer must build the backend of an online store to make a company's great product ideas available for purchase.
+
+## Description
+This project is an API that provide all the functionality needed for an online store. The project will include the requirement in the _REQUIREMENTS.md_ file and the RESTful API will display information to the frontend developer with full testing coverage.
+
+## Creation Date
+
+> 4/8/2026
+
+## Project Status
+
+> Active
+
+## How to Install and Run the Project
+1. Open **Terminal**
+2. Input the command below into the terminal to switch to the _postgres_ user
+```
+su postgres
+```
+3. Input the command below into the terminal to start _psql_
+```
+psql postgres
+```
+4. _If Steps 1-3 fail,_ open **SQL Shell (psql)**
+5. Input the following <ins>psql connection parameters</ins> to enable use of _SQL Shell (psql)_: **Server**, **Database**, **Username**, **Password**
+6. Input both of the commands below to create new users for project
+```
+CREATE USER shopping_user WITH PASSWORD 'password123';
+CREATE USER shopping_user_test WITH PASSWORD 'password123';
+```
+The following output should be displayed for each command: **CREATE ROLE**
+
+7. Input the following command to check if the roles are created successfully
+```
+\du
+```
+8. Input each of the following commands shown below to create new database for **Postman** and new database for **testing**
+```
+CREATE DATABASE shopping;
+CREATE DATABASE shopping_test;
+```
+The following output should be displayed for each command: **CREATE DATABASE**
+
+9. Input the following command to check if the databases are created successfully
+```
+\l
+```
+10. Input the command below into the terminal to connect to _shopping_ database as _postgres_ user
+```
+\c shopping
+```
+11. Input the command below into the terminal to grant **shopping_user** user all privileges to _shopping_ database
+```
+GRANT ALL PRIVILEGES ON DATABASE shopping TO shopping_user;
+```
+12. Input the command below into the terminal to test if _Steps 5-8_ work
+```
+\dt
+```
+The following output should be displayed: **No relations found** or **Did not find an relations.**
+
+13. Input the command below into the terminal to connect to _shopping_test_ database as _postgres_ user
+```
+\c shopping_test
+```
+14. Input the command below into the terminal to grant **shopping_user_test** user all privileges to _shopping_test_ database
+```
+GRANT ALL PRIVILEGES ON DATABASE shopping_test TO shopping_user_test;
+```
+15. Input the command below into the terminal to test if _Steps 5-8_ work
+```
+\dt
+```
+The following output should be displayed: **No relations found** or **Did not find an relations.**
+
+16. Open **Visual Studio Code**
+17. Open terminal in **Visual Studio Code**
+18. Input the command below into the terminal to install **yarn** and enable **yarn** commands to be run in _Visual Studio Code_
+```
+npm install yarn -g
+```
+19. Input the commands below into the terminal to install **db-migrate** and **db-migrate-pg** and enable **db-migrate** commands to be run in _Visual Studio Code_
+```
+npm install db-migrate -g
+npm install db-migrate-pg
+```
+20. Input the command below into the terminal to check _node version_
+```
+node -v
+```
+21. _If node is below 10 or 12_, run the following commands to update the _node version_
+```
+npm install -g n
+n 10.18.0
+PATH="$PATH"
+node -v
+```
+22. Input the command below into the terminal to install the required packages and create the node modules folder
+```
+yarn
+```
+23. Input the command below into the terminal to start the server initially
+```
+yarn watch
+```
+24. _If the previous commands fails_, input the command below into the terminal to start the server initially
+```
+yarn watch --ignoreConfig
+```
+25. Hit ```Ctrl+c``` to exit the ```yarn watch --ignoreConfig``` command
+26. Input the commands below to run migrations for **dev** and **testing** databases
+```
+db-migrate up
+db-migrate up -e test
+```
+27. _If the following error appears after running the previous command: ```[ERROR] AssertionError [ERR_ASSERTION]: ifError got unwanted exception: permission denied for schema public```,_ open **SQL Shell (psql)**
+28. Input the commands shown below to fix the **assertion error**
+```
+\c shopping
+GRANT USAGE, CREATE ON SCHEMA public TO shopping_user;
+\c shopping_test
+GRANT USAGE, CREATE ON SCHEMA public TO shopping_user_test;
+```
+The following output will confirm that permissions are granted: **GRANT**
+
+29. _If it is closed_, reopen **Visual Studio Code**
+30. Rerun the commands from _Step 26_ to run migrations for **dev** and **testing** databases
+31. _If it is closed_, reopen **SQL Shell (psql)**
+32. Input the command below to ensure that the "**orders**", "**products**", "**user_orders**", and "**users**" tables are created in the _shopping_ database
+```
+\dt
+```
+33. Input the commands shown below to ensure that the "**users**", "**orders**", and "**products**" tables are empty
+```
+SELECT * FROM users;
+SELECT * FROM orders;
+SELECT * FROM products;
+SELECT * FROM order_products;
+```
+34. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
+```
+ALTER TABLE users ADD COLUMN username VARCHAR(64) NOT NULL;
+ALTER TABLE users ADD COLUMN password_digest VARCHAR(64) NOT NULL;
+```
+The following output will confirm "**username**" column creation: **ALTER TABLE**
+
+35. _If "password" column is present in "users" table_, input the command below to remove the "**password**" column
+```
+ALTER TABLE users DROP COLUMN password;
+```
+The following output will confirm "**password**" column deletion: **ALTER TABLE**
+
+36. Input the command below to ensure that the "**users**" table has the "**username**" column
+```
+SELECT * FROM users;
+```
+37. Input the command below to input the data into the "**users**" table
+```
+INSERT INTO users (firstName, lastName, username, password) VALUES ('John', 'Doe', 'userJohn', 'password123');
+```
+The following output will confirm "**users**" new data addition: **INSERT 0 1**
+
+38. Repeat _Step 29_ using the commands below to input the rest of the data into the "**users**" table
+```
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Jane', 'Doe', 'userJane', 'password123');
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Dane', 'Jerry', 'userDane', 'password123');
+INSERT INTO users (firstName, lastName, username, password) VALUES ('Dana', 'Jamie', 'userDana', 'password123');
+```
+The following output will confirm "**username**" column creation: **ALTER TABLE**
+
+
+## How to Use the Project
+1. _If Visual Studio Code is <ins>not open</ins>,_ skip to _Step 4_
+2. Open **Visual Studio Code**
+3. Open terminal in **Visual Studio Code**
+4. Input the following command into the terminal to test the project
+```
+npm test
+```
+5. Input the following command into the terminal to run the project
+```
+npm start
+```
+The following output should display that the project is running on ```port 3000``` in the _Visual Studio Code_ terminal while the project is running.
+
+6. Open **Postman**
+7. _If collection does not exist,_ create new collection to hold requests
+8. _If there are no requests,_ create new request
+9. Input one of the following URL options into the respective requests to get the respective results in Postman
+
+**<ins>Home Request:</ins>** (**GET** request)
+```
+http://localhost:3000/
+```
+#### Result:
+```
+Hello World!
+```
+
+**<ins>Product Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products
+```
+#### Result:
+```
+[
+    {
+        "id": 2,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 3,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 4,
+        "name": "apples",
+        "price": 5,
+        "category": "food"
+    },
+    {
+        "id": 5,
+        "name": "pears",
+        "price": 10,
+        "category": "food"
+    }
+]
+```
+
+**<ins>Product Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/products/3
+```
+#### Result:
+```
+{
+    "id": 3,
+    "name": "apples",
+    "price": 5,
+    "category": "food"
+}
+```
+
+**<ins>Product Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/products?name=pears&price=10&category=food
+```
+#### Result:
+```
+{
+    "id": 5,
+    "name": "pears",
+    "price": 10,
+    "category": "food"
+}
+```
+
+**<ins>Product Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/products/3
+```
+#### Result:
+```
+{
+    "id": 3,
+    "name": "apples",
+    "price": 5,
+    "category": "food"
+}
+```
+
+**<ins>Order Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/orders
+```
+#### Result:
+```
+[
+    {
+        "id": 2,
+        "productorderid": "2",
+        "quantity": 2,
+        "userid": "2",
+        "orderstatus": "active"
+    },
+    {
+        "id": 4,
+        "productorderid": "2",
+        "quantity": 2,
+        "userid": "2",
+        "orderstatus": "active"
+    }
+]
+```
+
+**<ins>Order Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/orders/2
+```
+#### Result:
+```
+{
+    "id": 2,
+    "productorderid": "2",
+    "quantity": 2,
+    "userid": "2",
+    "orderstatus": "active"
+}
+```
+
+**<ins>Order Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/orders?userId=1&orderStatus=active
+```
+#### Result:
+```
+{
+    "id": 2,
+    "userId": "1",
+    "orderStatus": "active"
+}
+```
+
+**<ins>Order Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/orders/4
+```
+#### Result:
+```
+{
+    "id": 4,
+    "productorderid": "2",
+    "quantity": 2,
+    "userid": "2",
+    "orderstatus": "active"
+}
+```
+
+**<ins>Attach Product to Order:</ins>** (**POST** request)
+```
+http://localhost:3000/orders/3/products
+```
+_If "**Attach Product to Order**" request is being used_, open the **Body** tab in the **Docs** section
+Input the following example below provide all of the information required for the request:
+```
+{
+    "productId": 1,
+    "quantity": 4
+}
+```
+_The "productId" and "quantity" values can be different values._
+
+#### Result:
+```
+{
+    "id": 16,
+    "orderId": "3",
+    "productId": "1",
+    "quantity": 4
+}
+```
+
+**<ins>User Index Route:</ins>** (**GET** request)
+```
+http://localhost:3000/users
+```
+#### Result:
+```
+[
+    {
+        "id": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "username": "userJohn",
+        "password_digest": "$2b$10$51LHM0K/8bmEZMGgjgF9ueRSJ3anoc8s/8405Zjx73GSsozzj6T6K"
+    },
+    {
+        "id": 2,
+        "firstname": "Jane",
+        "lastname": "Doe",
+        "username": "userJane",
+        "password_digest": "$2b$10$727FkZbqq1lBGY0nO5By5OXK2hz97myWexYE27qezOIVdMvgeKtMm"
+    }
+]
+```
+
+**<ins>User Show Route:</ins>** (**GET** request)
+```
+http://localhost:3000/users/5
+```
+#### Result:
+```
+{
+    "id": 5,
+    "firstname": "John",
+    "lastname": "Doe",
+    "username": "userJohn",
+    "password_digest": "$2b$10$6ne/gY1Z9fHIn4w1qxVbnOD4jjl7Fi8U0Ut9sTuvfoOfCRV4n8YpS"
+}
+```
+**<ins>User Create Route:</ins>** (**POST** request)
+```
+http://localhost:3000/users?firstName=John&lastName=Doe&username=userJohn
+```
+#### Result:
+```
+{
+    "newUser": {
+        "id": 8,
+        "firstname": "John",
+        "lastname": "Doe",
+        "username": "userJohn",
+        "password_digest": "$2b$10$hKj621SN8Lq25ldlSJTJdum0iS6E4RXd.S3mWmnh3x5X1a8F.Tj5O"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo4LCJmaXJzdG5hbWUiOiJKb2huIiwibGFzdG5hbWUiOiJEb2UiLCJ1c2VybmFtZSI6InVzZXJKb2huIiwicGFzc3dvcmRfZGlnZXN0IjoiJDJiJDEwJGhLajYyMVNOOExxMjVsZGxTSlRKZHVtMGlTNkU0UlhkLlMzbVdtbmgzeDVYMWE4Ri5UajVPIn0sImlhdCI6MTc3NzQ5NjMxN30.5VTSi_NvKhHBtovb_gBqzCU8v5U2V7x7kh85OTAFFqY"
+}
+```
+
+**<ins>User Delete Route:</ins>** (**DELETE** request)
+```
+http://localhost:3000/users/3
+```
+#### Result:
+```
+{
+    "id": 3,
+    "firstname": "James",
+    "lastname": "Dille",
+    "username": "userJames",
+    "password_digest": "$2b$10$mvsL4YP9PQjDgbWUfzWsyemyycB7YR5hD5W/MoG3951jlvImzP9My"
+}
+```
+
+**<ins>User Authentication Route:</ins>** (**POST** request)
+```
+http://localhost:3000/users/authenticate?username=userJane&password=$2b$10$727FkZbqq1lBGY0nO5By5OXK2hz97myWexYE27qezOIVdMvgeKtMm
+```
+#### Result:
+```
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpudWxsLCJpYXQiOjE3Nzc0OTcwMTV9.yDBcYtRvVPliHUr-ssZxoGjTc90om1btbpfugdef04Y"
+```
+
+**<ins>Current Order by User Route:</ins>** (**GET** request)
+```
+http://localhost:3000/users/2/orders/2/products
+```
+_If "**Current Order by User Route**" request is being used_, open the **Body** tab in the **Docs** section
+Input the following example below provide all of the information required for the request:
+```
+{
+    "quantity": 3
+}
+```
+_The "quantity" value can be a different value._
+
+#### Result:
+```
+{
+    "id": 3,
+    "quantity": 3,
+    "orderid": "2",
+    "userid": "2"
+}
+```
+
+10. Hit the **"Send"** button to send the request. _Examples from Step 9 can be **different** from viewer's result._
+
+
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
@@ -52,3 +525,107 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+
+## Challenges Faced During Project
+
+One challenge that was faced was running the ```yarn watch``` command for the inital code of the project to ensure that the starter was working. This challenge was overcome by running the command shown below in the _Visual Studio Code terminal_:
+```
+yarn add typescript@latest -D
+```
+This was the solution given by **Ananta** in _Knowledge, Udacity_.
+
+
+## Udacity Mentors Who Have Answered Questions In Knowledge To Help With Project
+- Ananta
+- Mayur R
+
+## Languages
+
+**Docker**
+
+<p align="left"> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> </p>
+
+**Express**
+
+<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img width="114" height="40" alt="express_logo" src="https://github.com/user-attachments/assets/922b7eb3-f9a5-45d8-add7-e73f07cff732" /> </a> 
+
+**Jasmine**
+
+<a href="https://jasmine.github.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jasmine/jasmine-icon.svg" alt="jasmine" width="40" height="40"/> </a>
+
+**JavaScript**
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a>
+
+**Node.js**
+
+<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img width="59" height="49" alt="node_js_logo" src="https://github.com/user-attachments/assets/bc05c6f4-2ccb-41ab-a499-d0cdee52540f" /> </a>
+
+**PostgreSQL**
+
+<p align="left"> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> </p>
+
+**TypeScript**
+
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
+
+
+## Tools
+
+**Visual Studio Code** - The application software where the project is edited.
+
+<p align="left"> <img width="43" height="46" alt="VSCode_logo" src="https://github.com/user-attachments/assets/0f8d15c4-276a-46ef-92cd-80a2f1958e76" /> </p>
+
+**GitHub Desktop** - The application software that gives access to the project from _GitHub_ and allows it to be edited in _Visual Studio Code_.
+
+<p align="left"> <img width="46" height="46" alt="GitHub_Desktop_logo" src="https://github.com/user-attachments/assets/bbd2a72d-0953-499e-ab28-e55b11171b83" /> </p>
+
+**Postman** - The application software where the project is run.
+
+<img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>
+
+**ChatGPT** - The application software that answers specific questions of why project has specific problems or why project failed to achieve intended results.
+
+<p align="left"> <img width="49" height="42" alt="ChatGPT_logo" src="https://github.com/user-attachments/assets/34fd410d-3e92-4fc6-8dc7-1be521a8d2a6" /> </p>
+
+
+## Credits
+###### References used while making project
+
+Arora, Parth, and Nathan Mills. “" ‘env’ Is Not Recognized as an Internal or External Command, " in next.Js.” _Stack Overflow_, https://stackoverflow.com/#organization, 10 Nov. 2022, stackoverflow.com/questions/74384524/env-is-not-recognized-as-an-internal-or-external-command-in-next-js. Accessed 26 Apr. 2026.
+
+Banodha, Himanshu. “Database Schemas.” _GeeksforGeeks_, GeeksforGeeks, 8 Dec. 2025, www.geeksforgeeks.org/dbms/database-schemas/. Accessed 27 Apr. 2026.
+
+Danyow, Jeremy, et al. “Is Jasmine Supposed to Execute Specs in the Order They Are Declared or in a Random Order?” _Stack Overflow_, stackoverflow.com/#organization, 5 May 2015, stackoverflow.com/questions/30051693/is-jasmine-supposed-to-execute-specs-in-the-order-they-are-declared-or-in-a-rand#:~:text=3%20Answers,4. Accessed 23 Apr. 2026.
+
+“GitHub Profile README Generator.” _GitHub Profile Readme Generator | GitHub Profile Readme Generator_, rahuldkjain.github.io/gh-profile-readme-generator/. Accessed 8 Apr. 2026.
+
+Hesam, et al. “How to Display Table in README.Md File in Github?” Edited by Yivi and Cœur, _Stack Overflow_, https://stackoverflow.com/#organization, 3 Dec. 2021, stackoverflow.com/questions/39378020/how-to-display-table-in-readme-md-file-in-github. Accessed 29 Apr. 2026.
+
+Kumar, Shiv, and VIC3KING. “JWT Gives Jsonwebtokenerror ‘Invalid Token.’” _Stack Overflow_, stackoverflow.com/#organization, 14 Jan. 2022, stackoverflow.com/questions/48606341/jwt-gives-jsonwebtokenerror-invalid-token. Accessed 25 Apr. 2026.
+
+“Make a README.” _GitHub_, GitHub, www.makeareadme.com/. Accessed 8 Apr. 2026.
+
+“MLA Works Cited: Electronic Sources (Web Publications).” _MLA Works Cited: Electronic Sources - Purdue OWL® - Purdue University_, owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html. Accessed 8 Apr. 2026.
+
+Nyakundi, Hillary. “How to Write a Good README File for Your GitHub Project.” _freeCodeCamp.Org_, freeCodeCamp.org, 8 Dec. 2021, www.freecodecamp.org/news/how-to-write-a-good-readme-file/. Accessed 8 Apr. 2026.
+
+“Organizing Information with Tables.” _GitHub Docs_, docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables. Accessed 29 Apr. 2026.
+
+Oscalation, and Erwin Brandstetter. “Only Permit Specific Values in Postgresql Column.” Edited by User330315, _Stack Overflow_, stackoverflow.com/#organization, 1 Jan. 1963, stackoverflow.com/questions/55288282/only-permit-specific-values-in-postgresql-column#:~:text=To%20only%20permit%20specific%20values%20in%20a,*%20Using%20an%20ever%2Dexpanding/dynamic%20set%20of%20values. Accessed 10 Apr. 2026.
+
+seattleguy, and Yousaf. “Reset a Database before Each Test.” _Stack Overflow_, stackoverflow.com/#organization, 7 Oct. 2019, stackoverflow.com/questions/58274004/reset-a-database-before-each-test. Accessed 23 Apr. 2026.
+
+Tanmaya. “Markdown Tables.” _GeeksforGeeks_, GeeksforGeeks, 21 Mar. 2025, www.geeksforgeeks.org/html/markdown-tables/. Accessed 29 Apr. 2026.
+
+“Token Invalid.” _Knowledge_, Udacity, 2021, knowledge.udacity.com/questions/648515. Accessed 22 Apr. 2026.
+
+Tomar, Mayank. “How to Access Request Parameters in Postman?” _GeeksforGeeks_, GeeksforGeeks, 9 July 2024, www.geeksforgeeks.org/node-js/how-to-access-request-parameters-in-postman/. Accessed 25 Apr. 2026.
+
+UAnjali. “Nd0067-C2-Creating-an-Api-with-Postgresql-and-Express-Project-Starter.” _GitHub_, Udacity, 2022, github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter. Accessed 8 Apr. 2026.
+
+“Udacity Git Commit Message Style Guide.” _Udacity Nanodegree Style Guide_, udacity.github.io/git-styleguide/. Accessed 15 Mar. 2026.
+
+## License
+
+[License](LICENSE.txt)

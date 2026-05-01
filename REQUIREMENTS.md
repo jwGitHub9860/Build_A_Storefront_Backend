@@ -8,35 +8,114 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index 
 - Show
 - Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+- Destroy
 
 #### Users
 - Index [token required]
 - Show [token required]
-- Create N[token required]
+- Create [token required]
+- Destroy
+- Authenticate
+- Current Order by user (args: user id)[token required]
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Index
+- Show
+- Create
+- Destroy
 
 ## Data Shapes
 #### Product
 -  id
 - name
 - price
-- [OPTIONAL] category
+- category (food, vehicles, clothing, furniture)
 
 #### User
 - id
 - firstName
 - lastName
-- password
+- username
+- password_digest
 
 #### Orders
 - id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
+- userId
 - status of order (active or complete)
 
+#### Order Products
+- id
+- orderId
+- productId - _id of each product in the order_
+- quantity - quantity of each product in the order
+
+#### User Orders
+- id
+- quantity
+- orderId
+- userId
+
+## Database Schemas
+
+#### Product Schema
+
+|  Column  |                                                                 Type                                                                      |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| id       | SERIAL PRIMARY KEY _(or integer)_                                                                                                         |
+| name     | VARCHAR(64) NOT NULL _(or string)_                                                                                                        |
+| price    | integer                                                                                                                                   |
+| category | VARCHAR(64) NOT NULL CHECK (category IN ('food', 'vehicles', 'clothing', 'furniture')) _(or "food", "vehicles", "clothing", "furniture")_ |
+
+#### User Schema
+
+|     Column      |         Type         |
+| :-------------- | :------------------- |
+| id              | SERIAL PRIMARY KEY   |
+| firstName       | VARCHAR(64) NOT NULL |
+| lastName        | VARCHAR(64) NOT NULL |
+| username        | VARCHAR(64) NOT NULL |
+| password_digest | VARCHAR              |
+
+#### Orders Schema
+
+|     Column    |                                Type                                |
+| :------------ | :----------------------------------------------------------------- |
+| id            | SERIAL PRIMARY KEY                                                 |
+| userId        | bigint REFERENCES users(id)                                        |
+| orderStatus   | VARCHAR(64) NOT NULL CHECK (orderStatus IN ('active', 'complete')) |
+
+#### Order Products Schema
+
+|  Column   |              Type              |
+| :-------- | :----------------------------- |
+| id        | SERIAL PRIMARY KEY             |
+| orderId   | bigint REFERENCES orders(id)   |
+| productId | bigint REFERENCES products(id) |
+| quantity  | integer NOT NULL               |
+
+#### User Orders Schema
+
+|  Column  |             Type             |
+| :--- | :--- |
+| id       | SERIAL PRIMARY KEY           |
+| quantity | integer                      |
+| orderId  | bigint REFERENCES orders(id) |
+| userId   | bigint REFERENCES users(id)  |
+
+## View Schemas in _psql_
+
+1. Open Terminal
+2. Input the command below into the terminal to switch to the postgres user
+```
+su postgres
+```
+3. Input the command below into the terminal to start psql
+```
+psql postgres
+```
+4. _If Steps 1-3 fail_, open **SQL Shell (psql)**
+5. Input the following <ins>psql connection parameters</ins> to enable use of _SQL Shell (psql)_: **Server**, **Database**, **Username**, **Password**
+6. Input the command shown below to view the database schema relations
+```
+\d
+```
