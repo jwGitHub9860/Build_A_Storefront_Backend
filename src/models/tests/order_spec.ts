@@ -20,7 +20,9 @@ const orderStore = new OrderStore()
 const productStore = new ProductStore()
 const userStore = new UserStore()
 
-// Allows All Tests Access to "token", "productId", "orderId", and "userId"
+// Allows All Tests Access to "orderId"
+// Used Type "any" for "orderId" Because it is Inputted as "undefined" from Postman
+// "orderId" is Later Defined IN CODE
 let orderId: any
 
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File

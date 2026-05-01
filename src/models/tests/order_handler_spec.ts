@@ -24,6 +24,8 @@ const productStore = new ProductStore()
 const userStore = new UserStore()
 
 // Allows All Tests Access to "token"
+// Used Type "any" for "productId" & "userId" Because Both are Inputted as "undefined" from Postman
+// "productId" & "userId" are Later Defined IN CODE
 let token: string
 let productId: any
 let orderId: number
