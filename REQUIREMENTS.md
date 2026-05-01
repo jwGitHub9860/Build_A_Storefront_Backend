@@ -40,10 +40,14 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Orders
 - id
-- productOrderId - _id of each product in the order_
-- quantity - quantity of each product in the order
 - userId
 - status of order (active or complete)
+
+#### Order Products
+- id
+- orderId
+- productId - _id of each product in the order_
+- quantity - quantity of each product in the order
 
 #### User Orders
 - id
@@ -76,11 +80,18 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 |     Column    |                                Type                                |
 | :------------ | :----------------------------------------------------------------- |
-|id             | SERIAL PRIMARY KEY                                                 |
-|productOrderId | bigint REFERENCES products(id)                                     |
-|quantity       | integer NOT NULL                                                   |
-|userId         | bigint REFERENCES users(id)                                        |
-|orderStatus    | VARCHAR(64) NOT NULL CHECK (orderStatus IN ('active', 'complete')) |
+| id            | SERIAL PRIMARY KEY                                                 |
+| userId        | bigint REFERENCES users(id)                                        |
+| orderStatus   | VARCHAR(64) NOT NULL CHECK (orderStatus IN ('active', 'complete')) |
+
+#### Order Products Schema
+
+|  Column   |              Type              |
+| :-------- | :----------------------------- |
+| id        | SERIAL PRIMARY KEY             |
+| orderId   | bigint REFERENCES orders(id)   |
+| productId | bigint REFERENCES products(id) |
+| quantity  | integer NOT NULL               |
 
 #### User Orders Schema
 
