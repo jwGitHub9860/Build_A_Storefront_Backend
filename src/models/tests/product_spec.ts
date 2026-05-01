@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import jwt from "jsonwebtoken";
 import supertest from 'supertest';
 import { ProductStore } from "../product";
 import productsRoutes from "../../handlers/products";
@@ -12,11 +11,7 @@ app.use(bodyParser.json())
 // Enables Use of Express Routes in "handlers" Folder
 productsRoutes(app)
 
-const request = supertest(app)
 const store = new ProductStore()
-
-// Allows All Tests Access to "token"
-let token: string
 
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
 // DEFINES "describe", "it" & "expect" ("jest" & "mocha" do NOT Work)

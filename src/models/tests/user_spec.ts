@@ -11,7 +11,6 @@ app.use(bodyParser.json())
 // Enables Use of Express Routes in "handlers" Folder
 usersRoutes(app)
 
-const request = supertest(app)
 const store = new UserStore()
 
 // MUST USE "types": ["jasmine", "node"] in "tsconfig.json" File
