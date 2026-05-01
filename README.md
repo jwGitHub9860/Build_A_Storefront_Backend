@@ -138,6 +138,7 @@ The following output will confirm that permissions are granted: **GRANT**
 SELECT * FROM users;
 SELECT * FROM orders;
 SELECT * FROM products;
+SELECT * FROM order_products;
 ```
 34. _If "username" and "password_digest" columns are missing from the "users" table_, input each command below to add the "**username**" and "**password_digest**" columns
 ```
@@ -316,16 +317,14 @@ http://localhost:3000/orders/2
 
 **<ins>Order Create Route:</ins>** (**POST** request)
 ```
-http://localhost:3000/orders?productOrderId=2&quantity=2&userId=2&orderStatus=active
+http://localhost:3000/orders?userId=1&orderStatus=active
 ```
 #### Result:
 ```
 {
-    "id": 4,
-    "productorderid": "2",
-    "quantity": 2,
-    "userid": "2",
-    "orderstatus": "active"
+    "id": 2,
+    "userId": "1",
+    "orderStatus": "active"
 }
 ```
 
@@ -341,6 +340,30 @@ http://localhost:3000/orders/4
     "quantity": 2,
     "userid": "2",
     "orderstatus": "active"
+}
+```
+
+**<ins>Attach Product to Order:</ins>** (**POST** request)
+```
+http://localhost:3000/orders/3/products
+```
+_If "**Attach Product to Order**" request is being used_, open the **Body** tab in the **Docs** section
+Input the following example below provide all of the information required for the request:
+```
+{
+    "productId": 1,
+    "quantity": 4
+}
+```
+_The "productId" and "quantity" values can be different values._
+
+#### Result:
+```
+{
+    "id": 16,
+    "orderId": "3",
+    "productId": "1",
+    "quantity": 4
 }
 ```
 
