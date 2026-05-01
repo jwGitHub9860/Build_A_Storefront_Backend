@@ -1,7 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import jwt from "jsonwebtoken";
-import supertest from 'supertest';
 import { OrderStore } from "../order";
 import { ProductStore } from "../product";
 import { UserStore } from "../user";
